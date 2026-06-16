@@ -526,6 +526,13 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
     <div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;align-items:center">
       <input class="fi" id="search-w" placeholder="Buscar..." style="width:190px" oninput="filterW()">
       <select class="fi" id="filter-a" style="width:auto" onchange="filterW()"><option value="">Todas las areas</option><option>Empaque</option><option>Produccion</option><option>Almacen</option><option>Calidad</option><option>Administracion</option></select>
+      <select class="fi" id="filter-apt" style="width:auto" onchange="filterW()">
+        <option value="">Toda aptitud</option>
+        <option value="g">Apto</option>
+        <option value="a">Con restricciones</option>
+        <option value="r">No apto</option>
+      </select>
+      <div id="apt-filter-badge" style="display:none;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:5px 10px;border-radius:20px"></div>
       <button class="btn btn-p btn-sm" style="margin-left:auto" onclick="alert('Formulario nuevo trabajador...')"><i class="ti ti-plus"></i>Nuevo</button>
     </div>
     <div class="card" style="padding:0"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Trabajador</th><th>DNI</th><th>Area</th><th>Puesto</th><th>Ultima EMO</th><th>Vence</th><th>Aptitud</th><th></th></tr></thead><tbody id="w-tbody"></tbody></table></div></div>
@@ -2523,10 +2530,34 @@ function verTrabajador(btn) {
 function filterW() {
   var q = (document.getElementById('search-w').value || '').toLowerCase();
   var area = document.getElementById('filter-a').value || '';
+  var aptEl = document.getElementById('filter-apt');
+  var apt = aptEl ? aptEl.value : '';
   var filtered = workers.filter(function(w) {
-    return (!q || (w.n+w.d+w.a+w.p).toLowerCase().indexOf(q) >= 0) && (!area || w.a === area);
+    return (!q || (w.n+w.d+w.a+w.p).toLowerCase().indexOf(q) >= 0)
+        && (!area || w.a === area)
+        && (!apt || w.apt === apt);
   });
   buildTable(filtered);
+  updateAptFilterBadge(apt);
+}
+
+function updateAptFilterBadge(apt) {
+  var badge = document.getElementById('apt-filter-badge');
+  if (!badge) return;
+  if (!apt) { badge.style.display = 'none'; return; }
+  var labels = { g: ['Apto','var(--grn3)','var(--grn2)'], a: ['Con restricciones','var(--amb3)','var(--amb2)'], r: ['No apto','var(--red3)','var(--red2)'] };
+  var info = labels[apt];
+  if (!info) { badge.style.display = 'none'; return; }
+  badge.style.display = 'flex';
+  badge.style.background = info[1];
+  badge.style.color = info[2];
+  badge.innerHTML = 'Filtrando: ' + info[0] + ' <span style="cursor:pointer;margin-left:4px" onclick="clearAptFilter()">&#10005;</span>';
+}
+
+function clearAptFilter() {
+  var aptEl = document.getElementById('filter-apt');
+  if (aptEl) aptEl.value = '';
+  filterW();
 }
 
 // ============================================================
@@ -4240,11 +4271,18 @@ function loadMatrizPuesto(puesto) {
 // SEMAFORO / FILTER
 // ============================================================
 function filterByAptitud(tipo) {
+  // Mapea las claves del semaforo del dashboard al codigo interno de aptitud
+  var aptCode = tipo === 'apto' ? 'g' : tipo === 'restriccion' ? 'a' : 'r';
   showPage('trabajadores');
   setTimeout(function() {
-    var msg = tipo === 'apto' ? 'Filtrando: APTOS' : tipo === 'restriccion' ? 'Filtrando: APTOS CON RESTRICCIONES' : 'Filtrando: NO APTOS';
-    console.log(msg);
-  }, 100);
+    var aptEl = document.getElementById('filter-apt');
+    if (aptEl) aptEl.value = aptCode;
+    var areaEl = document.getElementById('filter-a');
+    if (areaEl) areaEl.value = '';
+    var searchEl = document.getElementById('search-w');
+    if (searchEl) searchEl.value = '';
+    filterW();
+  }, 80);
 }
 
 // Init chart for ausentismo when page loads
