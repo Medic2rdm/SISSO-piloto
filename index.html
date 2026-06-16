@@ -2267,7 +2267,9 @@ var ROLES = {
               'emos','audiometria','espirometria','visiometria','historia',
               'puestos','reba','rula','niosh','nordico',
               'ausentismo','proximos','matriz',
-              'reportes','indicadores','certificados','configuracion']
+              'reportes','indicadores','certificados','configuracion'],
+    readonly: [],
+    destroy: []
   },
   sso: {
     label: 'Tecnico SSO',
@@ -2275,15 +2277,22 @@ var ROLES = {
     allowed: ['dashboard','empresa','trabajadores','alertas','calendario',
               'puestos','reba','rula','niosh','nordico',
               'ausentismo','proximos','matriz',
-              'reportes','indicadores','certificados']
+              'reportes','indicadores','certificados'],
+    readonly: ['nordico'],
+    destroy: ['emos','audiometria','espirometria','visiometria','historia']
   },
   th: {
     label: 'Talento Humano',
     pillBg: '#faf5ff', pillColor: '#6d28d9',
-    allowed: ['dashboard','empresa','trabajadores','alertas','calendario','indicadores','certificados','ausentismo','proximos']
+    allowed: ['dashboard','empresa','trabajadores','alertas','calendario',
+              'indicadores','certificados','ausentismo','proximos'],
+    readonly: ['certificados','trabajadores'],
+    destroy: ['emos','audiometria','espirometria','visiometria','historia',
+              'puestos','reba','rula','niosh','nordico','matriz',
+              'reportes','configuracion']
   }
 };
-// Register main login handler for early-script compatibility
+// Register main login handler for early-script compatibility main login handler for early-script compatibility
 window._mainLogin = function(role) {
   currentRole = role;
   doLogin();
@@ -2326,6 +2335,18 @@ function doLogin() {
   pill.style.color = r.pillColor;
   document.getElementById('pill-text').textContent = r.label;
   document.getElementById('s-role-label').textContent = r.label;
+  // SECURITY: Destroy restricted DOM nodes so they cannot be inspected
+  var destroyList = r.destroy || [];
+  destroyList.forEach(function(pageId) {
+    var el = document.getElementById('pg-' + pageId);
+    if (el && el.parentNode) {
+      el.parentNode.removeChild(el);
+    }
+    // Also lock the nav item
+    var nav = document.querySelector('.nav[data-page="' + pageId + '"]');
+    if (nav) { nav.style.display = 'none'; }
+  });
+
   // Apply nav locks
   document.querySelectorAll('.nav[data-page]').forEach(function(nav) {
     var page = nav.getAttribute('data-page');
@@ -3987,6 +4008,9 @@ window.showPage = function(id) {
     }
   }, 60);
   if (id === 'audiometria') setTimeout(function(){ interpretAudio(); updateAudioTrendChart(); }, 150);
+  if (id === 'nordico')    setTimeout(renderNordicoByRole, 80);
+  if (id === 'certificados') setTimeout(applyCertRoleMode, 80);
+  if (id === 'dashboard' && currentRole === 'th') setTimeout(showTHSecurityNotice, 150);
   if (id === 'espirometria') setTimeout(function(){ calcEspiro(); }, 150);
 };
 
@@ -4216,6 +4240,107 @@ document.addEventListener('DOMContentLoaded', function() {
     if (e.target === modal) hideCredits();
   });
 });
+
+
+// ============================================================
+// SECURITY — ROLE-BASED DOM & UI RESTRICTIONS
+// ============================================================
+
+// Called after showPage('nordico') — SSO sees anonymous stats
+function renderNordicoByRole() {
+  if (currentRole !== 'sso') return;
+  var pg = document.getElementById('pg-nordico');
+  if (!pg || pg.getAttribute('data-sso-mode')) return;
+  pg.setAttribute('data-sso-mode','1');
+
+  // Find the SVG body map card and replace content
+  var svgEl = pg.querySelector('svg');
+  if (svgEl) {
+    var card = svgEl.closest('.card');
+    if (card) {
+      card.innerHTML = '<div class="al al-i" style="margin-bottom:10px;padding:9px 12px">'
+        + '<i class="ti ti-shield-lock" style="color:var(--blue2);font-size:15px"></i>'
+        + '<div style="font-size:12px;color:var(--blue2)"><strong>Vista SSO — datos anonimizados.</strong> '
+        + 'Ve estadisticas globales por area, no sintomas individuales. '
+        + 'Los datos individuales son confidenciales del medico ocupacional. (Art. 24 LOdS Ecuador)</div></div>'
+        + '<div style="font-size:13px;font-weight:700;margin-bottom:4px">Estadisticas globales de sintomas</div>'
+        + '<div style="font-size:12px;color:var(--t3);margin-bottom:12px">Trabajadores con dolor por zona — empresa general</div>'
+        + buildNordicoStats();
+    }
+  }
+}
+
+function buildNordicoStats() {
+  var zones = [
+    {z:'Zona lumbar',     pct:38,color:'var(--red)'},
+    {z:'Cuello/Cervical', pct:24,color:'var(--amb)'},
+    {z:'Hombros',         pct:19,color:'var(--amb)'},
+    {z:'Munecas',         pct:12,color:'var(--blue)'},
+    {z:'Rodillas',        pct:7, color:'var(--grn)'},
+  ];
+  return '<div style="display:flex;flex-direction:column;gap:8px">'
+    + zones.map(function(z){
+      return '<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--bd)">'
+        + '<div style="flex:2;font-size:13px;font-weight:600">' + z.z + '</div>'
+        + '<div style="flex:3;display:flex;align-items:center;gap:8px">'
+        + '<div style="flex:1;height:6px;background:var(--bg3);border-radius:3px">'
+        + '<div style="width:' + z.pct + '%;height:100%;background:' + z.color + ';border-radius:3px"></div></div>'
+        + '<span style="font-size:13px;font-weight:700;color:' + z.color + ';min-width:32px">' + z.pct + '%</span>'
+        + '</div></div>';
+    }).join('')
+    + '</div><div style="font-size:10px;color:var(--t3);margin-top:10px;font-style:italic">'
+    + 'Datos anonimizados — 48 trabajadores — Junio 2025. Protegido por secreto medico.</div>';
+}
+
+// TH security notice on dashboard
+function showTHSecurityNotice() {
+  var dash = document.getElementById('pg-dashboard');
+  if (!dash || dash.querySelector('#th-sec-notice')) return;
+  var notice = document.createElement('div');
+  notice.id = 'th-sec-notice';
+  notice.className = 'ins';
+  notice.style.background = 'var(--blue2)';
+  notice.innerHTML = '<div style="display:flex;gap:12px;align-items:flex-start">'
+    + '<i class="ti ti-shield-lock" style="font-size:22px;flex-shrink:0;margin-top:2px;opacity:.9"></i>'
+    + '<div><div style="font-size:13px;font-weight:700;margin-bottom:4px">'
+    + 'Sesion Talento Humano — Datos protegidos</div>'
+    + '<div style="font-size:12px;opacity:.9">Ley Organica de Salud Art. 24 — Codigo de Etica Medica Ecuador. '
+    + 'Tiene acceso a <strong>indicadores colectivos anonimizados</strong> y <strong>certificados de aptitud</strong>. '
+    + 'Los datos clinicos individuales han sido eliminados de esta sesion de forma permanente.</div></div></div>';
+  dash.insertBefore(notice, dash.firstChild);
+}
+
+// Certificate page restriction for non-medico roles
+function applyCertRoleMode() {
+  var pg = document.getElementById('pg-certificados');
+  if (!pg || currentRole === 'medico' || pg.getAttribute('data-role-cert')) return;
+  pg.setAttribute('data-role-cert','1');
+
+  // Add readonly notice
+  var notice = document.createElement('div');
+  notice.className = 'al al-w';
+  notice.style.cssText = 'margin-bottom:12px;padding:9px 12px';
+  notice.innerHTML = '<i class="ti ti-eye" style="color:var(--amb2);font-size:15px"></i>'
+    + '<div style="font-size:12px;color:var(--amb2)"><strong>Solo lectura.</strong> '
+    + 'Solo el Medico Ocupacional puede emitir certificados de aptitud. '
+    + 'Puede consultar los emitidos. (AM 1404 Ecuador)</div>';
+
+  var firstG2 = pg.querySelector('.g2');
+  if (firstG2) pg.insertBefore(notice, firstG2);
+
+  // For TH: hide the config card (form of certificate generation)
+  if (currentRole === 'th') {
+    var configCard = pg.querySelector('.card');
+    if (configCard) configCard.style.display = 'none';
+  }
+  // Disable emit buttons for SSO
+  if (currentRole === 'sso') {
+    pg.querySelectorAll('.btn-p').forEach(function(btn) {
+      btn.disabled = true; btn.style.opacity = '0.5';
+      btn.title = 'Solo el medico puede emitir certificados';
+    });
+  }
+}
 
 </script>
 
