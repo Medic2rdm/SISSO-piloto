@@ -465,7 +465,7 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
         <span style="width:18px;height:2px;background:var(--t2);border-radius:2px;display:block"></span>
       </span>
     </button>
-    <div><div style="font-size:15px;font-weight:700" id="tb-title">Dashboard</div><div style="font-size:11px;color:var(--t3)" id="tb-sub">Empresa Demo SA</div></div>
+    <div><div style="font-size:15px;font-weight:700" id="tb-title">Dashboard</div><div style="font-size:11px;color:var(--t3)" id="tb-sub">Empresa Demo S.A.</div></div>
     <div class="tb-right">
       <div class="user-pill" id="user-pill" onclick="doLogout()" title="Clic para cerrar sesion">
         <i class="ti ti-user-circle" style="font-size:16px"></i>
@@ -589,7 +589,7 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
       <div>
         <div class="card" style="margin-bottom:12px">
           <div class="ct">Programar nueva EMO</div><div class="cs"></div>
-          <div class="fg"><label class="fl">Trabajador</label><select class="fi"><option>Ana Garcia Lopez - 70123456</option><option>Luis Torres - 68901234</option><option>Carlos Mendoza - 72345612</option></select></div>
+          <div class="fg"><label class="fl">Trabajador</label><select class="fi"><option>Ana Garcia Lopez - 1701234567</option><option>Luis Torres - 1789012345</option><option>Carlos Mendoza - 1723456128</option></select></div>
           <div class="fg"><label class="fl">Tipo</label><select class="fi"><option>Preocupacional (Ingreso)</option><option>Periodica (Anual)</option><option>Postocupacional (Retiro)</option></select></div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
             <div class="fg"><label class="fl">Fecha</label><input type="date" class="fi" value="2025-06-15"></div>
@@ -617,7 +617,7 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
           <div class="ct">Datos del postulante</div><div class="cs"></div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
             <div class="fg"><label class="fl">Nombres completos</label><input class="fi" value="Carlos Mendoza Rivera"></div>
-            <div class="fg"><label class="fl">DNI</label><input class="fi" value="72345612"></div>
+            <div class="fg"><label class="fl">DNI</label><input class="fi" value="1723456128"></div>
             <div class="fg"><label class="fl">Fecha nacimiento</label><input type="date" class="fi" value="1990-05-15"></div>
             <div class="fg"><label class="fl">Sexo biologico</label><select class="fi"><option>Masculino</option><option>Femenino</option></select></div>
             <div class="fg"><label class="fl">Puesto postulado</label><input class="fi" value="Operario de Empaque"></div>
@@ -730,10 +730,10 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
             <div class="fg"><label class="fl">Trabajador</label>
               <select class="fi" id="audio-worker" onchange="loadAudioHistory()">
-                <option value="70123456">Ana Garcia Lopez</option>
-                <option value="68901234">Luis Torres Quispe</option>
-                <option value="65432198">Pedro Huaman</option>
-                <option value="72345612">Carlos Mendoza</option>
+                <option value="1701234567">Ana Garcia Lopez</option>
+                <option value="1789012345">Luis Torres Quispe</option>
+                <option value="1765432198">Pedro Huaman</option>
+                <option value="1723456128">Carlos Mendoza</option>
               </select>
             </div>
             <div class="fg"><label class="fl">Fecha del examen</label><input type="date" class="fi" id="audio-fecha" value="2025-06-06"></div>
@@ -911,9 +911,9 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
             <div class="fg"><label class="fl">Trabajador</label>
               <select class="fi" id="esp-worker" onchange="calcEspiro()">
-                <option value="65432198" data-talla="170" data-peso="72" data-edad="35" data-sexo="M">Pedro Huaman (H,35,170cm)</option>
-                <option value="70123456" data-talla="160" data-peso="58" data-edad="32" data-sexo="F">Ana Garcia (M,32,160cm)</option>
-                <option value="68901234" data-talla="175" data-peso="78" data-edad="29" data-sexo="M">Luis Torres (H,29,175cm)</option>
+                <option value="1765432198" data-talla="170" data-peso="72" data-edad="35" data-sexo="M">Pedro Huaman (H,35,170cm)</option>
+                <option value="1701234567" data-talla="160" data-peso="58" data-edad="32" data-sexo="F">Ana Garcia (M,32,160cm)</option>
+                <option value="1789012345" data-talla="175" data-peso="78" data-edad="29" data-sexo="M">Luis Torres (H,29,175cm)</option>
               </select>
             </div>
             <div class="fg"><label class="fl">Fecha</label><input type="date" class="fi" id="esp-fecha" value="2025-06-06"></div>
@@ -1060,10 +1060,10 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
         <div style="flex:1;min-width:200px">
           <div class="fl" style="margin-bottom:4px">Seleccionar trabajador</div>
           <select class="fi" id="hc-worker-select" onchange="loadHCWorker(this.value)">
-            <option value="70123456">Ana Garcia Lopez — 70123456 — Empaque</option>
-            <option value="68901234">Luis Torres Quispe — 68901234 — Produccion</option>
-            <option value="65432198">Pedro Huaman — 65432198 — Produccion</option>
-            <option value="72345612">Carlos Mendoza — 72345612 — Empaque</option>
+            <option value="1701234567">Ana Garcia Lopez — 1701234567 — Empaque</option>
+            <option value="1789012345">Luis Torres Quispe — 1789012345 — Produccion</option>
+            <option value="1765432198">Pedro Huaman — 1765432198 — Produccion</option>
+            <option value="1723456128">Carlos Mendoza — 1723456128 — Empaque</option>
           </select>
         </div>
         <div style="display:flex;gap:8px;margin-top:18px">
@@ -1079,7 +1079,7 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
         <div class="av" style="width:44px;height:44px;font-size:14px;background:var(--teal3);color:var(--teal2)" id="hc-initials">AG</div>
         <div>
           <div style="font-size:15px;font-weight:700" id="hc-nombre">Ana Garcia Lopez</div>
-          <div style="font-size:12px;color:var(--t3)" id="hc-subtitulo">CI: 70123456 — 32 anos — Empaque — Operaria de linea</div>
+          <div style="font-size:12px;color:var(--t3)" id="hc-subtitulo">CI: 1701234567 — 32 anos — Empaque — Operaria de linea</div>
           <div style="display:flex;gap:6px;margin-top:4px">
             <span class="badge bg-a" id="hc-aptitud-badge">Con restricciones</span>
             <span class="badge bg-t" id="hc-antiguedad-badge">5 anos en empresa</span>
@@ -1101,7 +1101,7 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
       <div class="tp active" data-group="hc" id="hc-filiacion">
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
           <div class="fg"><label class="fl">Apellidos y nombres completos</label><input class="fi" value="Garcia Lopez Ana Cristina"></div>
-          <div class="fg"><label class="fl">Cedula de identidad</label><input class="fi" value="1712345678"></div>
+          <div class="fg"><label class="fl">Cedula de identidad</label><input class="fi" value="117712345678"></div>
           <div class="fg"><label class="fl">Fecha de nacimiento</label><input type="date" class="fi" value="1993-03-15"></div>
           <div class="fg"><label class="fl">Edad (anos)</label><input type="number" class="fi" value="32"></div>
           <div class="fg"><label class="fl">Sexo biologico</label><select class="fi"><option>Femenino</option><option>Masculino</option></select></div>
@@ -1109,7 +1109,7 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
           <div class="fg"><label class="fl">Nivel de instruccion</label><select class="fi"><option>Secundaria completa</option><option>Primaria</option><option>Superior</option><option>Ninguna</option></select></div>
           <div class="fg"><label class="fl">Telefono / Celular</label><input class="fi" value="0987654321"></div>
           <div class="fg"><label class="fl">Direccion de domicilio</label><input class="fi" value="Quito, La Marin, Calle 10 de Agosto"></div>
-          <div class="fg"><label class="fl">Empresa</label><input class="fi" value="Empresa Demo SA de CV" id="hc-empresa"></div>
+          <div class="fg"><label class="fl">Empresa</label><input class="fi" value="Empresa Demo S.A." id="hc-empresa"></div>
           <div class="fg"><label class="fl">Puesto de trabajo actual</label><input class="fi" value="Operaria de linea — Empaque"></div>
           <div class="fg"><label class="fl">Tipo de contrato</label><select class="fi"><option>Indefinido</option><option>Temporal</option><option>Por obra</option><option>Honorarios</option></select></div>
           <div class="fg"><label class="fl">Fecha de ingreso a la empresa</label><input type="date" class="fi" value="2020-03-01"></div>
@@ -1197,7 +1197,7 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
             <thead><tr><th>Empresa</th><th>Puesto</th><th>Periodo</th><th>Riesgos expuestos</th><th>EPP usado</th><th>Patologia relacionada</th></tr></thead>
             <tbody>
               <tr><td>Fabrica Textil XYZ</td><td>Operaria de maquina</td><td>2016-2019 (3 anos)</td><td>Ruido &gt;85dB, posturas forzadas</td><td>Tapones auditivos</td><td>Ninguna documentada</td></tr>
-              <tr><td>Empresa Demo SA</td><td>Operaria de empaque</td><td>2020-actual (5 anos)</td><td>Carga manual &lt;15kg, bipedestacion, ruido moderado</td><td>Faja lumbar, calzado de seguridad</td><td>Lumbalgia L4-L5</td></tr>
+              <tr><td>Empresa Demo S.A.</td><td>Operaria de empaque</td><td>2020-actual (5 anos)</td><td>Carga manual &lt;15kg, bipedestacion, ruido moderado</td><td>Faja lumbar, calzado de seguridad</td><td>Lumbalgia L4-L5</td></tr>
             </tbody>
           </table>
         </div>
@@ -1760,7 +1760,7 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
     <div class="g2">
       <div class="card">
         <div class="ct" style="margin-bottom:10px">Configurar certificado</div>
-        <div class="fg"><label class="fl">Trabajador</label><select class="fi" id="cert-worker"><option>Carlos Mendoza Rivera - 72345612</option><option>Ana Garcia Lopez - 70123456</option><option>Luis Torres - 68901234</option></select></div>
+        <div class="fg"><label class="fl">Trabajador</label><select class="fi" id="cert-worker"><option>Carlos Mendoza Rivera - 1723456128</option><option>Ana Garcia Lopez - 1701234567</option><option>Luis Torres - 1789012345</option></select></div>
         <div class="fg"><label class="fl">Tipo de EMO</label><select class="fi" id="cert-tipo"><option>Preocupacional (Ingreso)</option><option>Periodica (Anual)</option><option>Postocupacional (Retiro)</option></select></div>
         <div class="fg"><label class="fl">Medico responsable</label><input class="fi" id="cert-medico" value="Dra. Rosa Vargas Solis - CMP 45678"></div>
         <div class="fg" style="margin-bottom:14px"><label class="fl">Resultado de aptitud</label>
@@ -1777,7 +1777,7 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
         <div style="text-align:center;margin-bottom:12px"><div style="font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:.05em">Vista previa</div></div>
         <div style="background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:18px">
           <div style="text-align:center;border-bottom:2px solid var(--teal);padding-bottom:10px;margin-bottom:12px"><div style="font-size:15px;font-weight:700;color:var(--teal2)">CERTIFICADO DE APTITUD LABORAL</div><div style="font-size:10px;color:var(--t3)">EMO - Preocupacional</div></div>
-          <div style="font-size:12px;line-height:1.9;color:var(--t2)"><div><strong>Trabajador:</strong> Carlos Mendoza Rivera</div><div><strong>DNI:</strong> 72345612</div><div><strong>Puesto:</strong> Operario de Empaque</div><div><strong>Empresa:</strong> Empresa Demo SA</div><div><strong>Fecha:</strong> 01 de Junio del 2025</div></div>
+          <div style="font-size:12px;line-height:1.9;color:var(--t2)"><div><strong>Trabajador:</strong> Carlos Mendoza Rivera</div><div><strong>DNI:</strong> 1723456128</div><div><strong>Puesto:</strong> Operario de Empaque</div><div><strong>Empresa:</strong> Empresa Demo S.A.</div><div><strong>Fecha:</strong> 01 de Junio del 2025</div></div>
           <div style="margin:12px 0;background:var(--grn3);border:2px solid var(--grn);border-radius:var(--r);padding:10px;text-align:center"><div style="font-size:18px;font-weight:700;color:var(--grn2)">CHECK APTO</div><div style="font-size:11px;color:var(--grn2)">Para el puesto indicado</div></div>
           <div style="font-size:10px;color:var(--t3);border-top:1px solid var(--bd);padding-top:8px;line-height:1.8"><strong>Medico:</strong> Dra. Rosa Vargas Solis - CMP 45678<br><strong>Nota:</strong> Este certificado no contiene datos clinicos. Informacion medica bajo secreto profesional.</div>
         </div>
@@ -1792,8 +1792,8 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
       <div>
         <div class="card" style="margin-bottom:12px">
           <div class="ct" style="margin-bottom:10px">Datos de la empresa</div>
-          <div class="fg"><label class="fl">Razon social</label><input class="fi" value="Empresa Demo SA de CV"></div>
-          <div class="fg"><label class="fl">RUC / NIT / RFC</label><input class="fi" value="20345678901"></div>
+          <div class="fg"><label class="fl">Razon social</label><input class="fi" value="Empresa Demo S.A."></div>
+          <div class="fg"><label class="fl">RUC (13 digitos)</label><input class="fi" value="1790012345001"></div>
           <div class="fg"><label class="fl">Pais / Normativa</label><select class="fi"><option>Peru - D.S. 005-2012-TR</option><option>Colombia - Res. 0312/2019</option><option>Mexico - NOM-030-STPS</option><option>Ecuador - IESS-SST</option><option>Chile - Ley 16.744</option></select></div>
           <div class="fg" style="margin-bottom:0"><label class="fl">Medico principal</label><input class="fi" value="Dra. Rosa Vargas Solis - CMP 45678"></div>
         </div>
@@ -1842,8 +1842,8 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
   <div class="g2" style="margin-bottom:14px">
     <div class="card">
       <div class="ct" style="margin-bottom:12px">Datos de la empresa</div>
-      <div class="fg"><label class="fl">Razon social</label><input class="fi" id="emp-nombre" value="Empresa Demo SA de CV" oninput="updateEmpresaHeader()"></div>
-      <div class="fg"><label class="fl">RUC / NIT / RFC</label><input class="fi" id="emp-ruc" value="20345678901"></div>
+      <div class="fg"><label class="fl">Razon social</label><input class="fi" id="emp-nombre" value="Empresa Demo S.A." oninput="updateEmpresaHeader()"></div>
+      <div class="fg"><label class="fl">RUC (13 digitos)</label><input class="fi" id="emp-ruc" value="1790012345001"></div>
       <div class="fg"><label class="fl">Numero total de trabajadores</label>
         <div style="display:flex;gap:10px;align-items:center">
           <input type="number" class="fi" id="emp-trabajadores" value="48" min="1" oninput="updateTrabajadores()" style="width:120px">
@@ -1947,10 +1947,10 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
           <div class="fg"><label class="fl">Trabajador</label>
             <select class="fi" id="aus-worker">
-              <option>Ana Garcia Lopez — 70123456</option>
-              <option>Luis Torres — 68901234</option>
-              <option>Pedro Huaman — 65432198</option>
-              <option>Carlos Mendoza — 72345612</option>
+              <option>Ana Garcia Lopez — 1701234567</option>
+              <option>Luis Torres — 1789012345</option>
+              <option>Pedro Huaman — 1765432198</option>
+              <option>Carlos Mendoza — 1723456128</option>
             </select>
           </div>
           <div class="fg"><label class="fl">Tipo de certificado</label>
@@ -2483,13 +2483,13 @@ function switchTab(group, id, el) {
 // TRABAJADORES
 // ============================================================
 var workers = [
-  {n:'Ana Garcia Lopez',d:'70123456',a:'Empaque',p:'Operaria de linea',emo:'Ene 2025',v:'Ene 2026',apt:'a'},
-  {n:'Carlos Mendoza',d:'72345612',a:'Empaque',p:'Operario de empaque',emo:'Mar 2025',v:'Mar 2026',apt:'g'},
-  {n:'Luis Torres Quispe',d:'68901234',a:'Produccion',p:'Tecnico mecanico',emo:'Feb 2025',v:'Feb 2026',apt:'g'},
-  {n:'Pedro Huaman',d:'65432198',a:'Produccion',p:'Operador de maquina',emo:'Oct 2024',v:'Oct 2025',apt:'r'},
-  {n:'Maria Quispe',d:'71234567',a:'Almacen',p:'Almacenera',emo:'Abr 2025',v:'Abr 2026',apt:'g'},
-  {n:'Roberto Silva',d:'69876543',a:'Calidad',p:'Inspector QC',emo:'May 2025',v:'May 2026',apt:'a'},
-  {n:'Jorge Campos',d:'67890123',a:'Produccion',p:'Mecanico',emo:'Mar 2025',v:'Mar 2026',apt:'g'},
+  {n:'Ana Garcia Lopez',d:'1701234567',a:'Empaque',p:'Operaria de linea',emo:'Ene 2025',v:'Ene 2026',apt:'a'},
+  {n:'Carlos Mendoza',d:'1723456128',a:'Empaque',p:'Operario de empaque',emo:'Mar 2025',v:'Mar 2026',apt:'g'},
+  {n:'Luis Torres Quispe',d:'1789012345',a:'Produccion',p:'Tecnico mecanico',emo:'Feb 2025',v:'Feb 2026',apt:'g'},
+  {n:'Pedro Huaman',d:'1765432198',a:'Produccion',p:'Operador de maquina',emo:'Oct 2024',v:'Oct 2025',apt:'r'},
+  {n:'Maria Quispe',d:'1771234567',a:'Almacen',p:'Almacenera',emo:'Abr 2025',v:'Abr 2026',apt:'g'},
+  {n:'Roberto Silva',d:'1769876543',a:'Calidad',p:'Inspector QC',emo:'May 2025',v:'May 2026',apt:'a'},
+  {n:'Jorge Campos',d:'1767890123',a:'Produccion',p:'Mecanico',emo:'Mar 2025',v:'Mar 2026',apt:'g'},
 ];
 var aptBadge = {
   g:'<span class="badge bg-g">Apto</span>',
@@ -2781,15 +2781,51 @@ function clickZone(id) {
 
 function savePain() {
   if (!activeZone) return;
+  var intensity = parseInt(document.getElementById('pain-int').value) || 5;
+  var freq = document.getElementById('pain-freq').value || '';
   painData[activeZone] = {
-    intensity: parseInt(document.getElementById('pain-int').value) || 5,
+    intensity: intensity,
     duration: document.getElementById('pain-dur').value || '',
-    freq: document.getElementById('pain-freq').value || ''
+    freq: freq
   };
   renderOverlays();
   renderList();
   document.getElementById('zone-detail').style.display = 'none';
+
+  // INTEGRACION SALUD-SEGURIDAD: el Cuestionario Nordico es tamizaje
+  // sintomatologico (lo que el trabajador percibe). REBA/RULA/NIOSH son
+  // evaluacion cuantitativa del puesto (lo que el tecnico mide). Un sintoma
+  // relevante debe disparar automaticamente la orden de evaluacion ergonomica
+  // — asi es como se integra realmente la vigilancia de salud con la seguridad.
+  var esGrave = intensity >= 7;
+  var esFrecuente = freq.indexOf('Muy frecuente') >= 0 || freq.indexOf('Siempre') >= 0;
+  if (esGrave || esFrecuente) {
+    triggerErgoAlert(activeZone, intensity, freq);
+  }
   activeZone = null;
+}
+
+function triggerErgoAlert(zoneId, intensity, freq) {
+  var herramienta = (zoneId === 'lumbar' || zoneId === 'dorsal') ? 'NIOSH'
+                   : (zoneId.indexOf('hombro') >= 0 || zoneId.indexOf('muneca') >= 0) ? 'RULA'
+                   : 'REBA';
+  var zonaLabel = znames[zoneId] || zoneId;
+  var box = document.getElementById('ergo-alert-box');
+  if (!box) {
+    box = document.createElement('div');
+    box.id = 'ergo-alert-box';
+    var card = document.getElementById('zone-detail').closest('.g2') || document.getElementById('zone-detail').parentElement;
+    if (card) card.parentElement.insertBefore(box, card.parentElement.firstChild);
+  }
+  box.className = 'al al-d';
+  box.style.cssText = 'margin-bottom:12px;padding:10px 12px';
+  box.innerHTML = '<i class="ti ti-alert-triangle" style="color:var(--red2);font-size:17px"></i>'
+    + '<div style="font-size:12px;color:var(--red2)">'
+    + '<strong>Sintoma relevante detectado — ' + zonaLabel + ' (EVA ' + intensity + '/10, ' + freq + ').</strong><br>'
+    + 'Tamizaje sintomatico positivo. Se recomienda <strong>orden de evaluacion ergonomica con ' + herramienta + '</strong> '
+    + 'del puesto de trabajo correspondiente para confirmar correlacion objetiva.'
+    + '<div style="margin-top:6px"><button class="btn btn-p btn-sm" onclick="showPage(\'' + herramienta.toLowerCase() + '\')"><i class="ti ti-clipboard-check"></i>Ir a evaluar con ' + herramienta + '</button></div>'
+    + '</div>';
 }
 
 function renderOverlays() {
@@ -2908,7 +2944,7 @@ function generatePDF() {
     + '<div class="section"><div class="sl">Datos del trabajador</div><div class="row">'
     + '<div class="field"><label>Nombres y apellidos</label><span>' + wname + '</span></div>'
     + '<div class="field"><label>DNI / Identificacion</label><span>' + wdni + '</span></div>'
-    + '<div class="field"><label>Empresa</label><span>Empresa Demo SA</span></div>'
+    + '<div class="field"><label>Empresa</label><span>Empresa Demo S.A.</span></div>'
     + '<div class="field"><label>Puesto</label><span>Operario de Empaque</span></div></div></div>'
     + '<div class="section"><div class="sl">Datos de la evaluacion</div><div class="row">'
     + '<div class="field"><label>Tipo de evaluacion</label><span>' + tipo + '</span></div>'
@@ -3663,24 +3699,52 @@ function getAudioVals(cls) {
 }
 
 function audioAvg(vals) {
-  // PTA (Pure Tone Average): 500, 1000, 2000, 4000 Hz
-  var freqs = [500, 1000, 2000, 4000];
+  // PROMEDIO CONVERSACIONAL (PTA-OMS) — 500, 1000, 2000 Hz
+  // Criterio de la OMS para discapacidad social/laboral por hipoacusia.
+  // IMPORTANTE: NO incluye 4000 Hz a proposito — un promedio que mezcla
+  // frecuencias conversacionales con la frecuencia tipica de NIHL (4-6kHz)
+  // diluye la caida aislada y puede marcar a un trabajador como "Normal"
+  // cuando ya tiene una escotadura acustica temprana.
+  var freqs = [500, 1000, 2000];
   var sum = 0, count = 0;
   freqs.forEach(function(f) { if (vals[f] !== undefined) { sum += vals[f]; count++; } });
   return count > 0 ? (sum / count).toFixed(1) : 0;
 }
 
-function classifyAudio(avg, vals4k) {
-  avg = parseFloat(avg);
+function audioAgudasAvg(vals) {
+  // Promedio de frecuencias agudas — 3000, 4000, 6000 Hz
+  // Zona tipica de afectacion por trauma acustico ocupacional (NIHL)
+  var freqs = [3000, 4000, 6000];
+  var sum = 0, count = 0;
+  freqs.forEach(function(f) { if (vals[f] !== undefined) { sum += vals[f]; count++; } });
+  return count > 0 ? (sum / count).toFixed(1) : 0;
+}
+
+function classifyAudio(avgConversacional, agudasAvg, val3k, val4k, val6k) {
+  var avg = parseFloat(avgConversacional);
   var cls, color, bg;
+  // Clasificacion OMS sobre el promedio CONVERSACIONAL (discapacidad social)
   if (avg <= 25) { cls = 'Normal'; color = 'var(--grn2)'; bg = 'var(--grn3)'; }
   else if (avg <= 40) { cls = 'Hipoacusia leve'; color = 'var(--amb2)'; bg = 'var(--amb3)'; }
   else if (avg <= 60) { cls = 'Hipoacusia moderada'; color = '#c2410c'; bg = '#fed7aa'; }
   else if (avg <= 80) { cls = 'Hipoacusia severa'; color = 'var(--red2)'; bg = 'var(--red3)'; }
   else { cls = 'Hipoacusia profunda'; color = '#9d174d'; bg = '#fce7f3'; }
-  // Check for notch (NIHL pattern)
-  var notch = vals4k && vals4k >= 40 && avg <= 25;
-  return { cls: cls, color: color, bg: bg, notch: notch };
+
+  // ANALISIS INDEPENDIENTE DE AGUDAS — Clasificacion de Klockhoff simplificada
+  // para escotadura acustica (NIHL), evaluado SIN promediar con conversacionales
+  var agudas = parseFloat(agudasAvg);
+  var escotadura = null;
+  // Criterio de notch: caida >=15dB en 3-6kHz respecto a frecuencias vecinas (1-2kHz)
+  var caidaRelativa = val4k && val3k !== undefined ? (val4k - (val3k||val4k)) : 0;
+  if (val4k >= 40 && avg <= 25) {
+    escotadura = { grado: 'Klockhoff I — Escotadura inicial', detalle: '4kHz: ' + val4k + ' dB con conversacionales normales (PTA ' + avg + ' dB). Hipoacusia inducida por ruido en etapa temprana — el promedio simple NO la detecta.', severidad: 'amb' };
+  } else if (val4k >= 55 && avg <= 35) {
+    escotadura = { grado: 'Klockhoff II — Escotadura establecida', detalle: '4kHz: ' + val4k + ' dB. Perdida acustica ocupacional progresando hacia frecuencias conversacionales.', severidad: 'red' };
+  } else if (agudas >= 40 && avg <= 25) {
+    escotadura = { grado: 'Alerta agudas (3-6kHz)', detalle: 'Promedio agudas ' + agudas + ' dB con conversacionales normales. Vigilar evolucion — posible exposicion a ruido.', severidad: 'amb' };
+  }
+
+  return { cls: cls, color: color, bg: bg, escotadura: escotadura, agudas: agudas };
 }
 
 function interpretAudio() {
@@ -3688,25 +3752,42 @@ function interpretAudio() {
   var oi = getAudioVals('audio-oi');
   var avgOD = audioAvg(od);
   var avgOI = audioAvg(oi);
-  var classOD = classifyAudio(avgOD, od[4000]);
-  var classOI = classifyAudio(avgOI, oi[4000]);
+  var agudasOD = audioAgudasAvg(od);
+  var agudasOI = audioAgudasAvg(oi);
+  var classOD = classifyAudio(avgOD, agudasOD, od[3000], od[4000], od[6000]);
+  var classOI = classifyAudio(avgOI, agudasOI, oi[3000], oi[4000], oi[6000]);
 
   var odEl = document.getElementById('audio-od-result');
   var oiEl = document.getElementById('audio-oi-result');
   var iconOD = classOD.cls === 'Normal' ? 'ti-check' : 'ti-alert-triangle';
   var iconOI = classOI.cls === 'Normal' ? 'ti-check' : 'ti-alert-triangle';
 
+  function buildResultHTML(classification, avgConv, icon) {
+    var alClass = classification.cls === 'Normal' ? 'al-s' : classification.cls.includes('leve') ? 'al-w' : 'al-d';
+    var html = '<i class="ti ' + icon + '" style="color:' + classification.color + '"></i>'
+      + '<div style="font-size:12px;color:' + classification.color + '">'
+      + classification.cls + ' (PTA conversacional 500-2k Hz: ' + avgConv + ' dB HL)';
+    if (classification.escotadura) {
+      var escColor = classification.escotadura.severidad === 'red' ? 'var(--red2)' : 'var(--amb2)';
+      html += '<div style="margin-top:4px;padding:6px 8px;background:rgba(0,0,0,.04);border-radius:6px;border-left:3px solid ' + escColor + '">'
+        + '<strong style="color:' + escColor + '">' + classification.escotadura.grado + '</strong><br>'
+        + '<span style="font-size:11px">' + classification.escotadura.detalle + '</span></div>';
+    } else {
+      html += '<div style="font-size:11px;color:var(--t3);margin-top:2px">Promedio agudas (3-6kHz): ' + classification.agudas + ' dB — sin escotadura</div>';
+    }
+    html += '</div>';
+    return html;
+  }
+
   if (odEl) {
-    odEl.className = 'al ' + (classOD.cls === 'Normal' ? 'al-s' : classOD.cls.includes('leve') ? 'al-w' : 'al-d');
+    odEl.className = 'al ' + (classOD.escotadura ? (classOD.escotadura.severidad === 'red' ? 'al-d' : 'al-w') : (classOD.cls === 'Normal' ? 'al-s' : classOD.cls.includes('leve') ? 'al-w' : 'al-d'));
     odEl.style.padding = '8px 10px';
-    var notchOD = classOD.notch ? ' | Patron notch 4kHz (posible NIHL)' : '';
-    odEl.innerHTML = '<i class="ti ' + iconOD + '" style="color:' + classOD.color + '"></i><div style="font-size:12px;color:' + classOD.color + '">' + classOD.cls + ' (PTA: ' + avgOD + ' dB HL)' + notchOD + '</div>';
+    odEl.innerHTML = buildResultHTML(classOD, avgOD, iconOD);
   }
   if (oiEl) {
-    oiEl.className = 'al ' + (classOI.cls === 'Normal' ? 'al-s' : classOI.cls.includes('leve') ? 'al-w' : 'al-d');
+    oiEl.className = 'al ' + (classOI.escotadura ? (classOI.escotadura.severidad === 'red' ? 'al-d' : 'al-w') : (classOI.cls === 'Normal' ? 'al-s' : classOI.cls.includes('leve') ? 'al-w' : 'al-d'));
     oiEl.style.padding = '8px 10px';
-    var notchOI = classOI.notch ? ' | Patron notch 4kHz (posible NIHL — Decreto 2393)' : (oi[4000] >= 40 ? ' | 4kHz: ' + oi[4000] + ' dB — vigilar' : '');
-    oiEl.innerHTML = '<i class="ti ' + iconOI + '" style="color:' + classOI.color + '"></i><div style="font-size:12px;color:' + classOI.color + '">' + classOI.cls + ' (PTA: ' + avgOI + ' dB HL)' + notchOI + '</div>';
+    oiEl.innerHTML = buildResultHTML(classOI, avgOI, iconOI);
   }
 
   // Update live audiogram
@@ -3753,8 +3834,8 @@ function saveAudioResult() {
   var oi = getAudioVals('audio-oi');
   var avgOD = audioAvg(od);
   var avgOI = audioAvg(oi);
-  var classOD = classifyAudio(avgOD, od[4000]);
-  var classOI = classifyAudio(avgOI, oi[4000]);
+  var classOD = classifyAudio(avgOD, audioAgudasAvg(od), od[3000], od[4000], od[6000]);
+  var classOI = classifyAudio(avgOI, audioAgudasAvg(oi), oi[3000], oi[4000], oi[6000]);
   var worker = document.getElementById('audio-worker');
   var wname = worker ? worker.options[worker.selectedIndex].text : 'Trabajador';
   var fecha = document.getElementById('audio-fecha') ? document.getElementById('audio-fecha').value : '';
@@ -3831,21 +3912,36 @@ function calcEspiro() {
   setText('esp-fef-pct-display',  fefPct  + '% — ' + (fefPct >= 80 ? 'Normal' : fefPct >= 60 ? 'Limite' : 'Reducido'), colorPct(fefPct));
   setText('esp-ratio-class', parseFloat(ratio) >= 0.70 ? 'Sin obstruccion' : 'Patron obstructivo', parseFloat(ratio) >= 0.70 ? 'var(--grn2)' : 'var(--red2)');
 
-  // ATS/ERS classification
-  var patron, desc, bg, color;
+  // ATS/ERS classification — evaluacion INDEPENDIENTE de obstruccion y restriccion
+  // (corrige el error de excluir el patron mixto con else-if encadenado)
   var ratioN = parseFloat(ratio);
-  if (ratioN < 0.70) {
+  var hayObstruccion = ratioN < 0.70;
+  var hayRestriccion  = cvfPct < 80;
+  var fefReducido      = fefPct < 70;
+
+  var patron, desc, bg, color;
+
+  if (hayObstruccion && hayRestriccion) {
+    // PATRON MIXTO — coexisten ambos componentes. Frecuente en exposicion
+    // combinada a polvos organicos/quimicos. Diagnostico que el else-if anterior omitia.
+    var sevObs = vef1Pct >= 70 ? 'leve' : vef1Pct >= 60 ? 'moderado' : 'severo';
+    patron = 'Patron MIXTO (Obstructivo ' + sevObs + ' + Restrictivo)';
+    desc = 'VEF1/CVF ' + ratio + ' (<0.70, obstruccion) Y CVF ' + cvfPct + '% (<80%, restriccion). '
+         + 'Requiere evaluacion neumologica especializada — posible exposicion combinada.';
+    bg = '#fce7f3'; color = '#9d174d';
+  } else if (hayObstruccion) {
     var sev = vef1Pct >= 70 ? 'leve' : vef1Pct >= 60 ? 'moderado' : vef1Pct >= 50 ? 'moderado-severo' : 'severo';
     patron = 'Patron OBSTRUCTIVO ' + sev.toUpperCase();
-    desc = 'VEF1/CVF < 0.70. VEF1 ' + vef1Pct + '% del predicho.';
+    desc = 'VEF1/CVF ' + ratio + ' (<0.70). VEF1 ' + vef1Pct + '% del predicho. CVF normal (' + cvfPct + '%).';
     bg = 'var(--red3)'; color = 'var(--red2)';
-  } else if (cvfPct < 80) {
+  } else if (hayRestriccion) {
     patron = 'Patron RESTRICTIVO';
-    desc = 'CVF < 80% del predicho (' + cvfPct + '%). VEF1/CVF normal.';
+    desc = 'CVF ' + cvfPct + '% (<80% del predicho). VEF1/CVF normal (' + ratio + ').';
     bg = 'var(--amb3)'; color = 'var(--amb2)';
-  } else if (fefPct < 70) {
-    patron = 'Patron MIXTO / LIMITE';
-    desc = 'FEF 25-75% reducido (' + fefPct + '%). Posible compromiso de via aerea pequena.';
+  } else if (fefReducido) {
+    patron = 'Patron LIMITE — via aerea pequena';
+    desc = 'FEF 25-75% reducido (' + fefPct + '%) con espirometria basica normal. '
+         + 'Compromiso incipiente de via aerea pequena — vigilar evolucion.';
     bg = 'var(--amb3)'; color = 'var(--amb2)';
   } else {
     patron = 'NORMAL';
@@ -3924,10 +4020,10 @@ function calcIMC() {
 
 function loadHCWorker(dni) {
   var workers = {
-    '70123456': { nombre:'Ana Garcia Lopez', ci:'1712345678', edad:32, area:'Empaque', puesto:'Operaria de linea', apt:'bg-a', aptLabel:'Con restricciones', anos:'5' },
-    '68901234': { nombre:'Luis Torres Quispe', ci:'1756789012', edad:29, area:'Produccion', puesto:'Tecnico mecanico', apt:'bg-g', aptLabel:'Apto', anos:'3' },
-    '65432198': { nombre:'Pedro Huaman', ci:'1745678901', edad:35, area:'Produccion', puesto:'Operador de maquina', apt:'bg-r', aptLabel:'No apto temporal', anos:'4' },
-    '72345612': { nombre:'Carlos Mendoza Rivera', ci:'1723456789', edad:33, area:'Empaque', puesto:'Operario de empaque', apt:'bg-g', aptLabel:'Apto', anos:'2' }
+    '1701234567': { nombre:'Ana Garcia Lopez', ci:'117712345678', edad:32, area:'Empaque', puesto:'Operaria de linea', apt:'bg-a', aptLabel:'Con restricciones', anos:'5' },
+    '1789012345': { nombre:'Luis Torres Quispe', ci:'1756789012', edad:29, area:'Produccion', puesto:'Tecnico mecanico', apt:'bg-g', aptLabel:'Apto', anos:'3' },
+    '1765432198': { nombre:'Pedro Huaman', ci:'1745678901', edad:35, area:'Produccion', puesto:'Operador de maquina', apt:'bg-r', aptLabel:'No apto temporal', anos:'4' },
+    '1723456128': { nombre:'Carlos Mendoza Rivera', ci:'1723456789', edad:33, area:'Empaque', puesto:'Operario de empaque', apt:'bg-g', aptLabel:'Apto', anos:'2' }
   };
   var w = workers[dni];
   if (!w) return;
@@ -3965,7 +4061,7 @@ function printHC() {
     + '<div style="text-align:right;font-size:10px;color:#718096">Fecha: ' + new Date().toLocaleDateString('es-EC') + '<br>CONFIDENCIAL — Secreto medico</div></div>'
     + '<div class="conf">DOCUMENTO CONFIDENCIAL: Esta historia clinica esta protegida por el Codigo de Etica Medica del Ecuador y la Ley Organica de Salud. Su contenido es de acceso exclusivo del medico tratante y del trabajador. La empresa unicamente recibe el certificado de aptitud.</div>'
     + '<h2>1. DATOS DE FILIACION</h2>'
-    + '<div class="row"><div class="field"><label>Nombre completo</label><span>' + wname + '</span></div><div class="field"><label>Empresa</label><span>Empresa Demo SA</span></div></div>'
+    + '<div class="row"><div class="field"><label>Nombre completo</label><span>' + wname + '</span></div><div class="field"><label>Empresa</label><span>Empresa Demo S.A.</span></div></div>'
     + '<h2>2. DIAGNOSTICO Y APTITUD LABORAL</h2>'
     + '<div style="border:2px solid #0d9488;border-radius:6px;padding:10px;text-align:center;margin:10px 0"><div style="font-size:14px;font-weight:700;color:#0f766e">APTO CON RESTRICCIONES</div>'
     + '<div style="font-size:10px;color:#718096;margin-top:4px">Segun Acuerdo Ministerial 1404 — MSP Ecuador</div></div>'
