@@ -307,7 +307,7 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
 
   /* AUDIOMETRIA table — scrollable */
   #pg-audiometria table { min-width: 480px; }
-  #pg-audiometria table input { width: 38px !important; }
+  #pg-audiometria table input { width: 52px !important; }
 
   /* CHARTS */
   .cht { height: 180px !important; }
@@ -319,8 +319,8 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
   /* REBA / RULA / NIOSH — full width options */
   .ropt { font-size: 11px; padding: 5px 8px; }
 
-  /* NORDIC SVG — smaller */
-  #pg-nordico svg { width: 150px !important; height: 270px !important; }
+  /* NORDIC SVG — mantener tamaño clínico en tablet */
+  #pg-nordico svg { min-width: 200px; }
 
   /* LOGIN */
   .login-box { width: 95vw; padding: 28px 20px; }
@@ -351,11 +351,11 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
   /* HC tabs — very compact */
   .tab { padding: 6px 8px; font-size: 11px; }
 
-  /* Audiometria inputs smaller */
-  #pg-audiometria table input { width: 34px !important; padding: 2px !important; }
+  /* Audiometria inputs — ancho mínimo para valores de 3 dígitos y negativos */
+  #pg-audiometria table input { width: 52px !important; padding: 2px !important; font-size: 11px !important; }
 
-  /* Nordic even smaller */
-  #pg-nordico svg { width: 130px !important; height: 240px !important; }
+  /* Nordic SVG — scroll horizontal, no reducción de tamaño */
+  #pg-nordico { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
   /* Puestos 1 column */
   #puestos-grid { grid-template-columns: 1fr !important; }
@@ -404,6 +404,39 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
     <div style="margin-top:10px;font-size:11px;color:var(--t3);text-align:center;margin-bottom:6px" id="login-status">-- Seleccione un perfil --</div>
     <button class="login-btn" id="login-btn" onclick="doLogin()" disabled>Ingresar al sistema</button>
     <div style="margin-top:12px;text-align:center;font-size:10px;color:var(--t3)"><i class="ti ti-shield-check"></i> Datos cifrados AES-256 - Privacidad medica garantizada</div>
+  </div>
+</div>
+
+<!-- MODAL CONSENTIMIENTO INFORMADO — LOPDP Ecuador 2021 / AM 1404 Art. 7 -->
+<div id="consent-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:2000;display:none;align-items:center;justify-content:center">
+  <div style="background:#fff;border-radius:16px;padding:28px 30px;max-width:480px;width:92%;box-shadow:0 20px 60px rgba(0,0,0,0.3);max-height:90vh;overflow-y:auto">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+      <div style="width:36px;height:36px;border-radius:9px;background:var(--teal3);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+        <i class="ti ti-shield-lock" style="color:var(--teal2);font-size:18px"></i>
+      </div>
+      <div>
+        <div style="font-size:15px;font-weight:700;color:var(--t1)">Consentimiento Informado</div>
+        <div style="font-size:11px;color:var(--t3)">LOPDP Ecuador 2021 · AM 1404 Art. 7</div>
+      </div>
+    </div>
+    <div style="font-size:12px;color:var(--t2);line-height:1.7;margin-bottom:16px">
+      <p style="margin:0 0 10px">Al ingresar a <strong>SISSO</strong>, usted reconoce y acepta lo siguiente:</p>
+      <ul style="margin:0;padding-left:18px">
+        <li style="margin-bottom:6px">Este sistema procesa <strong>datos de salud de carácter sensible</strong> conforme a la Ley Orgánica de Protección de Datos Personales del Ecuador (LOPDP 2021) y el Acuerdo Ministerial 1404.</li>
+        <li style="margin-bottom:6px">El acceso a la información clínica está <strong>restringido según su perfil</strong>. Queda prohibido el uso no autorizado, la divulgación o la transferencia de datos de salud a terceros.</li>
+        <li style="margin-bottom:6px">Las historias clínicas y resultados de exámenes ocupacionales son <strong>confidenciales</strong> y solo pueden ser consultados por el médico ocupacional responsable y las autoridades sanitarias competentes.</li>
+        <li style="margin-bottom:6px">El uso indebido de datos de salud puede constituir una <strong>infracción legal</strong> sancionable bajo la LOPDP, el Código Orgánico Integral Penal y las normas del MSP e IESS.</li>
+        <li>El responsable del tratamiento de datos es el <strong>médico ocupacional titular</strong> de la empresa. SISSO actúa únicamente como herramienta de gestión.</li>
+      </ul>
+    </div>
+    <div style="background:var(--teal3);border-radius:8px;padding:10px 12px;margin-bottom:16px;font-size:11px;color:var(--teal2);line-height:1.5">
+      <i class="ti ti-info-circle"></i> Los datos son almacenados <strong>localmente en este dispositivo</strong>. Es responsabilidad del operador garantizar la seguridad física del equipo y el acceso restringido al archivo SISSO.
+    </div>
+    <div style="display:flex;gap:10px">
+      <button onclick="rejectConsent()" style="flex:1;padding:10px;border:2px solid var(--bd);border-radius:9px;background:#fff;font-size:13px;font-weight:600;cursor:pointer;color:var(--t2)">Cancelar</button>
+      <button onclick="acceptConsent()" style="flex:2;padding:10px;background:var(--teal);color:#fff;border:none;border-radius:9px;font-size:13px;font-weight:700;cursor:pointer">Acepto e Ingreso al Sistema</button>
+    </div>
+    <div style="margin-top:10px;text-align:center;font-size:10px;color:var(--t3)">Este aviso cumple con el Art. 7 del AM 1404 (MSP Ecuador) y el Art. 13 de la LOPDP 2021</div>
   </div>
 </div>
 
@@ -2364,6 +2397,29 @@ function doLogin() {
     currentRole = window._selectedRole;
   }
   if (!currentRole) { alert('Por favor seleccione un perfil de acceso.'); return; }
+  // LOPDP 2021 / AM 1404 Art. 7: mostrar consentimiento antes de ingresar
+  var m = document.getElementById('consent-modal');
+  if (m) { m.style.display = 'flex'; return; }
+  _doLoginConfirmed();
+}
+
+function acceptConsent() {
+  var m = document.getElementById('consent-modal');
+  if (m) m.style.display = 'none';
+  _doLoginConfirmed();
+}
+
+function rejectConsent() {
+  var m = document.getElementById('consent-modal');
+  if (m) m.style.display = 'none';
+  currentRole = null;
+  window._selectedRole = null;
+  document.getElementById('login-btn').disabled = true;
+  document.querySelectorAll('.role-btn').forEach(function(b){ b.classList.remove('sel'); });
+  document.getElementById('login-status').textContent = '-- Seleccione un perfil --';
+}
+
+function _doLoginConfirmed() {
   var r = ROLES[currentRole];
   // Hide login, show app
   document.getElementById('login-screen').style.display = 'none';
