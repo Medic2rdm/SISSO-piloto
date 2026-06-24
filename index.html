@@ -1050,7 +1050,7 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
     <div class="st">Visiometria Ocupacional</div><div class="ss">Agudeza visual, colores y profundidad</div>
     <div class="g2">
       <div class="card"><div class="fg"><label class="fl">Trabajador</label><select class="fi"><option>Roberto Silva - Calidad</option><option>Ana Garcia - Empaque</option></select></div><div class="fg"><label class="fl">Fecha</label><input type="date" class="fi" value="2025-06-01"></div><div class="divider"></div><div class="ct" style="margin-bottom:6px">Escala de Snellen</div><div style="font-size:11px;color:var(--t3);margin-bottom:8px;font-style:italic">Linea mas pequena leida correctamente</div><div style="font-weight:700;font-size:10px;color:var(--t3);margin-bottom:6px;display:flex;gap:6px"><span style="flex:2">Linea</span><span style="flex:1;text-align:center">OD</span><span style="flex:1;text-align:center">OI</span></div><div id="snellen-rows"></div></div>
-      <div><div class="card" style="margin-bottom:12px"><div class="ct">Resultado</div><div class="cs"></div><div style="display:flex;gap:10px;margin-bottom:10px"><div style="flex:1;background:var(--grn3);border-radius:var(--r);padding:12px;text-align:center"><div style="font-size:10px;color:var(--grn2);font-weight:700;margin-bottom:4px">OJO DERECHO</div><div style="font-size:20px;font-weight:700;color:var(--grn2)">20/20</div><span class="badge bg-g">Normal</span></div><div style="flex:1;background:var(--amb3);border-radius:var(--r);padding:12px;text-align:center"><div style="font-size:10px;color:var(--amb2);font-weight:700;margin-bottom:4px">OJO IZQUIERDO</div><div style="font-size:20px;font-weight:700;color:var(--amb2)">20/30</div><span class="badge bg-a">Leve deficit</span></div></div><div class="al al-w" style="padding:8px"><i class="ti ti-glasses" style="color:var(--amb2);font-size:15px"></i><div style="font-size:11px;color:var(--amb2)"><strong>Recomendacion:</strong> Evaluacion oftalmologica. Correccion optica para tareas de precision.</div></div><button class="btn btn-p" style="width:100%;justify-content:center;margin-top:8px" onclick="alert('Visiometria guardada.')"><i class="ti ti-device-floppy"></i>Guardar</button></div><div class="card"><div class="ct" style="margin-bottom:8px">Vision de colores (Ishihara)</div><select class="fi"><option>Normal (identifica todas las laminas)</option><option>Discromatopsia leve (1-2 errores)</option><option>Discromatopsia moderada (3-5 errores)</option><option>Daltonismo confirmado</option></select></div></div>
+      <div><div class="card" style="margin-bottom:12px"><div class="ct">Resultado</div><div class="cs"></div><div style="display:flex;gap:10px;margin-bottom:10px"><div id="visio-od-box" style="flex:1;background:var(--grn3);border-radius:var(--r);padding:12px;text-align:center"><div style="font-size:10px;color:var(--grn2);font-weight:700;margin-bottom:4px">OJO DERECHO (OD)</div><div style="font-size:20px;font-weight:700;color:var(--grn2)">20/20</div><span class="badge bg-g">Normal</span></div><div id="visio-oi-box" style="flex:1;background:var(--amb3);border-radius:var(--r);padding:12px;text-align:center"><div style="font-size:10px;color:var(--amb2);font-weight:700;margin-bottom:4px">OJO IZQUIERDO (OI)</div><div style="font-size:20px;font-weight:700;color:var(--amb2)">20/30</div><span class="badge bg-a">Leve deficit</span></div></div><div class="al al-w" id="visio-recomendacion" style="padding:8px"><i class="ti ti-glasses" style="color:var(--amb2);font-size:15px"></i><div style="font-size:11px;color:var(--amb2)"><strong>Recomendacion:</strong> Evaluacion oftalmologica. Correccion optica para tareas de precision.</div></div><button class="btn btn-p" style="width:100%;justify-content:center;margin-top:8px" onclick="alert('Visiometria guardada.')"><i class="ti ti-device-floppy"></i>Guardar</button></div><div class="card"><div class="ct" style="margin-bottom:8px">Vision de colores (Ishihara)</div><select class="fi"><option>Normal (identifica todas las laminas)</option><option>Discromatopsia leve (1-2 errores)</option><option>Discromatopsia moderada (3-5 errores)</option><option>Daltonismo confirmado</option></select></div></div>
     </div>
   </div>
 
@@ -1801,7 +1801,7 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
           <div class="ct" style="margin-bottom:10px">Datos de la empresa</div>
           <div class="fg"><label class="fl">Razon social</label><input class="fi" value="Empresa Demo S.A."></div>
           <div class="fg"><label class="fl">RUC (13 digitos)</label><input class="fi" value="1790012345001"></div>
-          <div class="fg"><label class="fl">Pais / Normativa</label><select class="fi"><option>Peru - D.S. 005-2012-TR</option><option>Colombia - Res. 0312/2019</option><option>Mexico - NOM-030-STPS</option><option>Ecuador - IESS-SST</option><option>Chile - Ley 16.744</option></select></div>
+          <div class="fg"><label class="fl">Pais / Normativa</label><select class="fi"><option>Ecuador — Decreto 2393 + Acuerdo Ministerial 174 + IESS-SGRT</option><option>Peru — D.S. 005-2012-TR</option><option>Colombia — Res. 0312/2019</option><option>Mexico — NOM-030-STPS</option><option>Chile — Ley 16.744</option></select></div>
           <div class="fg" style="margin-bottom:0"><label class="fl">Medico principal</label><input class="fi" value="Dra. Rosa Vargas Solis - CMP 45678"></div>
         </div>
         <div class="card">
@@ -1818,13 +1818,41 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
       <div>
         <div class="card" style="margin-bottom:12px">
           <div class="ct" style="margin-bottom:10px">Usuarios y roles</div>
-          <div class="tbl-wrap"><table class="tbl" style="font-size:12px"><thead><tr><th>Usuario</th><th>Rol</th><th>Acceso clinico</th><th>Estado</th></tr></thead><tbody>
-            <tr><td><div style="display:flex;align-items:center;gap:7px"><div class="av" style="background:var(--teal3);color:var(--teal2)">RV</div>Dra. Rosa Vargas</div></td><td><span class="badge bg-t">Medico</span></td><td><span class="badge bg-g">Completo</span></td><td><span class="badge bg-g">Activo</span></td></tr>
-            <tr><td><div style="display:flex;align-items:center;gap:7px"><div class="av" style="background:var(--pur3);color:var(--pur2)">ML</div>Dr. Mario Leon</div></td><td><span class="badge bg-t">Medico</span></td><td><span class="badge bg-g">Completo</span></td><td><span class="badge bg-g">Activo</span></td></tr>
-            <tr><td><div style="display:flex;align-items:center;gap:7px"><div class="av" style="background:var(--blue3);color:var(--blue2)">JP</div>Juan Perez</div></td><td><span class="badge bg-b">SSO</span></td><td><span class="badge bg-a">Solo aptitud</span></td><td><span class="badge bg-g">Activo</span></td></tr>
-            <tr><td><div style="display:flex;align-items:center;gap:7px"><div class="av">MR</div>Maria Ruiz</div></td><td><span class="badge bg-gr">RRHH</span></td><td><span class="badge bg-r">Sin acceso</span></td><td><span class="badge bg-g">Activo</span></td></tr>
+          <!-- USUARIOS TABLE -->
+          <div class="tbl-wrap"><table class="tbl" style="font-size:12px"><thead><tr><th>Usuario</th><th>Rol</th><th>Acceso clinico</th><th>Estado</th><th>Acciones</th></tr></thead><tbody id="usuarios-tbody">
+            <tr><td><div style="display:flex;align-items:center;gap:7px"><div class="av" style="background:var(--teal3);color:var(--teal2)">RV</div>Dra. Rosa Vargas</div></td><td><span class="badge bg-t">Medico</span></td><td><span class="badge bg-g">Completo</span></td><td><span class="badge bg-g">Activo</span></td><td><span style="color:var(--t3);font-size:10px">Principal</span></td></tr>
+            <tr><td><div style="display:flex;align-items:center;gap:7px"><div class="av" style="background:var(--pur3);color:var(--pur2)">ML</div>Dr. Mario Leon</div></td><td><span class="badge bg-t">Medico</span></td><td><span class="badge bg-g">Completo</span></td><td><span class="badge bg-g">Activo</span></td><td><button class="btn btn-s btn-sm" onclick="removeUsuario(this)"><i class="ti ti-trash"></i></button></td></tr>
+            <tr><td><div style="display:flex;align-items:center;gap:7px"><div class="av" style="background:var(--blue3);color:var(--blue2)">JP</div>Juan Perez</div></td><td><span class="badge bg-b">Tecnico SSO</span></td><td><span class="badge bg-a">Solo aptitud</span></td><td><span class="badge bg-g">Activo</span></td><td><button class="btn btn-s btn-sm" onclick="removeUsuario(this)"><i class="ti ti-trash"></i></button></td></tr>
+            <tr><td><div style="display:flex;align-items:center;gap:7px"><div class="av">MR</div>Maria Ruiz</div></td><td><span class="badge bg-gr">RRHH</span></td><td><span class="badge bg-r">Sin acceso</span></td><td><span class="badge bg-g">Activo</span></td><td><button class="btn btn-s btn-sm" onclick="removeUsuario(this)"><i class="ti ti-trash"></i></button></td></tr>
           </tbody></table></div>
-          <button class="btn btn-s btn-sm" style="margin-top:8px"><i class="ti ti-user-plus"></i>Agregar usuario</button>
+          <button class="btn btn-s btn-sm" style="margin-top:8px" onclick="showAddUsuario()"><i class="ti ti-user-plus"></i>Agregar usuario</button>
+
+          <!-- ADD USER MODAL INLINE -->
+          <div id="add-usuario-panel" style="display:none;background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);padding:14px;margin-top:12px">
+            <div style="font-size:13px;font-weight:700;margin-bottom:10px;color:var(--teal2)"><i class="ti ti-user-plus"></i> Nuevo usuario del sistema</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <div class="fg"><label class="fl">Nombre completo</label><input class="fi" id="nu-nombre" placeholder="Ej: Dr. Carlos Perez"></div>
+              <div class="fg"><label class="fl">Cedula de identidad</label><input class="fi" id="nu-ci" placeholder="1712345678"></div>
+              <div class="fg"><label class="fl">Correo electronico</label><input class="fi" id="nu-email" type="email" placeholder="usuario@empresa.ec"></div>
+              <div class="fg"><label class="fl">Contrasena temporal</label><input class="fi" id="nu-pass" type="password" placeholder="Min. 8 caracteres"></div>
+              <div class="fg"><label class="fl">Rol en el sistema</label>
+                <select class="fi" id="nu-rol" onchange="updateAccesoLabel()">
+                  <option value="medico">Medico Ocupacional — Acceso clinico completo</option>
+                  <option value="tecnico">Tecnico SSO — Solo aptitud y reportes SST</option>
+                  <option value="rrhh">RRHH — Sin acceso clinico</option>
+                  <option value="admin">Administrador — Configuracion del sistema</option>
+                </select>
+              </div>
+              <div class="fg"><label class="fl">Acceso clinico</label>
+                <div id="nu-acceso-label" style="padding:8px 10px;border-radius:var(--r);background:var(--teal3);color:var(--teal2);font-size:12px;font-weight:700">Completo (historia, examenes, diagnostico)</div>
+              </div>
+            </div>
+            <div class="al al-w" style="margin:10px 0;padding:8px;font-size:11px"><i class="ti ti-shield-check"></i> Acuerdo Ministerial 1404: Solo medicos ocupacionales tienen acceso a historia clinica completa. RRHH unicamente puede visualizar resultado de aptitud.</div>
+            <div style="display:flex;gap:8px;margin-top:4px">
+              <button class="btn btn-p btn-sm" onclick="addUsuario()" style="flex:1;justify-content:center"><i class="ti ti-check"></i>Agregar usuario</button>
+              <button class="btn btn-s btn-sm" onclick="document.getElementById('add-usuario-panel').style.display='none'"><i class="ti ti-x"></i>Cancelar</button>
+            </div>
+          </div>
         </div>
         <div class="card">
           <div class="ct" style="margin-bottom:10px">Seguridad y privacidad</div>
@@ -2604,9 +2632,57 @@ function buildSnellen() {
     var l = item[0], n = item[1];
     sr.innerHTML += '<div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;font-size:12px">'
       + '<div style="flex:2;color:' + (n?'var(--grn2)':'var(--t2)') + ';font-weight:' + (n?700:400) + '">' + l + '</div>'
-      + '<div style="flex:1;text-align:center"><label style="cursor:pointer"><input type="radio" name="od"' + (n?' checked':'') + '></label></div>'
-      + '<div style="flex:1;text-align:center"><label style="cursor:pointer"><input type="radio" name="oi"' + (l==='20/30'?' checked':'') + '></label></div></div>';
+      + '<div style="flex:1;text-align:center"><label style="cursor:pointer"><input type="radio" name="od" value="' + l + '" onchange="calcVision()"' + (n?' checked':'') + '></label></div>'
+      + '<div style="flex:1;text-align:center"><label style="cursor:pointer"><input type="radio" name="oi" value="' + l + '" onchange="calcVision()"' + (l==='20/30'?' checked':'') + '></label></div></div>';
   });
+  calcVision();
+}
+
+var snellenRank = {'20/200':1,'20/100':2,'20/70':3,'20/40':4,'20/30':5,'20/25':6,'20/20':7,'20/15':8};
+function snellenLabel(val) {
+  var rank = snellenRank[val]||0;
+  if (rank >= 7) return {cls:'bg-g', color:'var(--grn2)', bg:'var(--grn3)', label:'Normal', rec:''};
+  if (rank === 6) return {cls:'bg-g', color:'var(--grn2)', bg:'var(--grn3)', label:'Limite normal', rec:'Control anual.'};
+  if (rank === 5) return {cls:'bg-a', color:'var(--amb2)', bg:'var(--amb3)', label:'Deficit leve', rec:'Evaluacion oftalmologica. Considerar correccion optica para precision.'};
+  if (rank === 4) return {cls:'bg-a', color:'var(--amb2)', bg:'var(--amb3)', label:'Deficit moderado', rec:'Referencia a oftalmologia. Restriccion para trabajos en altura o conduccion.'};
+  return {cls:'bg-r', color:'var(--red2)', bg:'var(--red3)', label:'Deficit severo', rec:'Referencia urgente a oftalmologia. No apto para trabajos de riesgo visual.'};
+}
+function calcVision() {
+  var odEl = document.querySelector('input[name="od"]:checked');
+  var oiEl = document.querySelector('input[name="oi"]:checked');
+  var od = odEl ? odEl.value : '20/20';
+  var oi = oiEl ? oiEl.value : '20/20';
+  var odInfo = snellenLabel(od);
+  var oiInfo = snellenLabel(oi);
+  // Update OD box
+  var odBox = document.getElementById('visio-od-box');
+  var oiBox = document.getElementById('visio-oi-box');
+  if (odBox) {
+    odBox.style.background = odInfo.bg;
+    odBox.innerHTML = '<div style="font-size:10px;color:'+odInfo.color+';font-weight:700;margin-bottom:4px">OJO DERECHO (OD)</div>'
+      + '<div style="font-size:20px;font-weight:700;color:'+odInfo.color+'">' + od + '</div>'
+      + '<span class="badge '+odInfo.cls+'">'+odInfo.label+'</span>';
+  }
+  if (oiBox) {
+    oiBox.style.background = oiInfo.bg;
+    oiBox.innerHTML = '<div style="font-size:10px;color:'+oiInfo.color+';font-weight:700;margin-bottom:4px">OJO IZQUIERDO (OI)</div>'
+      + '<div style="font-size:20px;font-weight:700;color:'+oiInfo.color+'">' + oi + '</div>'
+      + '<span class="badge '+oiInfo.cls+'">'+oiInfo.label+'</span>';
+  }
+  // Combined recommendation
+  var recEl = document.getElementById('visio-recomendacion');
+  var minRank = Math.min(snellenRank[od]||7, snellenRank[oi]||7);
+  var worstInfo = minRank <= (snellenRank[od]||7) ? odInfo : oiInfo;
+  if (recEl) {
+    if (minRank >= 7) {
+      recEl.innerHTML = '<i class="ti ti-check" style="color:var(--grn2)"></i><span style="color:var(--grn2)"><strong>Vision normal bilateral.</strong> Apto para todas las tareas. Control en proximo EMO.</span>';
+      recEl.style.background = 'var(--grn3)'; recEl.style.borderColor = 'var(--grn)';
+    } else {
+      recEl.innerHTML = '<i class="ti ti-glasses" style="color:'+worstInfo.color+';font-size:15px"></i>'
+        + '<div style="font-size:11px;color:'+worstInfo.color+'"><strong>Recomendacion:</strong> ' + worstInfo.rec + '</div>';
+      recEl.style.background = worstInfo.bg; recEl.style.borderColor = '';
+    }
+  }
 }
 
 // ============================================================
@@ -2924,7 +3000,42 @@ function renderList() {
   saveBtn.className = 'btn btn-p btn-sm';
   saveBtn.style.cssText = 'width:100%;justify-content:center;margin-top:8px';
   saveBtn.innerHTML = '<i class="ti ti-device-floppy"></i>Guardar cuestionario';
-  saveBtn.addEventListener('click', function() { alert('Cuestionario Nordico guardado.'); });
+  saveBtn.addEventListener('click', function() {
+    var workerSel = document.querySelector('#pg-nordico select');
+    var workerName = workerSel ? workerSel.options[workerSel.selectedIndex].text : 'Trabajador';
+    if (!Object.keys(painData).length) { alert('No hay sintomas registrados. Haga clic en el mapa corporal para registrar zonas de dolor.'); return; }
+    var zonas = Object.keys(painData).map(function(id) {
+      return (znames[id]||id) + ' (EVA ' + painData[id].intensity + '/10, ' + painData[id].freq + ')';
+    });
+    var maxEva = Math.max.apply(null, Object.keys(painData).map(function(id){ return painData[id].intensity; }));
+    var fecha = new Date().toLocaleDateString('es-EC');
+    var entry = {
+      trabajador: workerName,
+      fecha: fecha,
+      zonas: zonas,
+      maxEva: maxEva,
+      estado: maxEva >= 7 ? 'urgente' : maxEva >= 4 ? 'proximo' : 'al-dia',
+      tipo: 'Cuestionario Nordico',
+      raw: JSON.parse(JSON.stringify(painData))
+    };
+    if (!window.nordicoRegistros) window.nordicoRegistros = [];
+    // Remove previous entry for same worker
+    window.nordicoRegistros = window.nordicoRegistros.filter(function(r){ return r.trabajador !== workerName; });
+    window.nordicoRegistros.push(entry);
+    // Also push to proximos agenda if EVA >= 4
+    if (maxEva >= 4) {
+      if (!window.proximosExtra) window.proximosExtra = [];
+      window.proximosExtra = window.proximosExtra.filter(function(r){ return !(r.trabajador===workerName && r.tipo==='Cuestionario Nordico'); });
+      var diasLabel = maxEva >= 7 ? '<span style="color:var(--red2);font-weight:700">Urgente</span>' : '<span style="color:var(--amb2);font-weight:700">Proximo</span>';
+      window.proximosExtra.push({
+        trabajador: workerName, tipo: 'Cuestionario Nordico',
+        detalle: zonas.join('; '),
+        fecha: fecha, estado: entry.estado, diasLabel: diasLabel
+      });
+      updateProximosNordico();
+    }
+    alert('Cuestionario Nordico guardado correctamente.\nTrabajador: ' + workerName + '\nZonas: ' + zonas.join(', ') + '\n\nRegistro disponible en Proximos Examenes.');
+  });
   list.appendChild(saveBtn);
 }
 function delPain(id) { delete painData[id]; renderOverlays(); renderList(); }
@@ -4079,25 +4190,81 @@ function saveEvolNota() {
 function printHC() {
   var worker = document.getElementById('hc-worker-select');
   var wname = worker ? worker.options[worker.selectedIndex].text.split('—')[0].trim() : 'Trabajador';
-  var w = window.open('', '_blank', 'width=900,height=1100');
+  var empresa = (document.getElementById('emp-nombre')||document.getElementById('hc-empresa')||{}).value || 'Empresa Demo S.A.';
+  var ruc = (document.getElementById('emp-ruc')||{}).value || '1790012345001';
+  var medico = (document.getElementById('emp-medico')||{}).value || 'Dra. Rosa Vargas Solis';
+  var fecha = new Date().toLocaleDateString('es-EC');
+
+  // Helper: get input/select value from a field by label text inside hc tabs
+  function fv(id) { var el=document.getElementById(id); if(el) return el.value||''; return ''; }
+  // Helper: read all inputs/textareas/selects from a tab panel
+  function readTab(tabId) {
+    var tab = document.getElementById(tabId);
+    if (!tab) return '';
+    var rows = [];
+    tab.querySelectorAll('.fg').forEach(function(fg) {
+      var lbl = fg.querySelector('.fl'); if (!lbl) return;
+      var inp = fg.querySelector('input,textarea,select');
+      if (!inp) return;
+      var val = inp.value || '';
+      if (!val.trim()) return;
+      rows.push('<tr><td style="font-size:9px;color:#718096;width:38%;padding:4px 6px;border-bottom:1px solid #f0f0f0;vertical-align:top">'+lbl.textContent+'</td>'
+        +'<td style="font-size:11px;font-weight:600;padding:4px 6px;border-bottom:1px solid #f0f0f0;vertical-align:top">'+val+'</td></tr>');
+    });
+    // Also capture checkboxes
+    var cbRows = [];
+    tab.querySelectorAll('label').forEach(function(lbl) {
+      var cb = lbl.querySelector('input[type=checkbox]');
+      if (cb && cb.checked) cbRows.push(lbl.textContent.trim());
+    });
+    if (cbRows.length) rows.push('<tr><td style="font-size:9px;color:#718096;padding:4px 6px;border-bottom:1px solid #f0f0f0;vertical-align:top">Marcado</td>'
+      +'<td style="font-size:11px;font-weight:600;padding:4px 6px;border-bottom:1px solid #f0f0f0">'+cbRows.join(', ')+'</td></tr>');
+    return rows.join('');
+  }
+
+  function section(num, title, content) {
+    if (!content) return '';
+    return '<div style="page-break-inside:avoid;margin-bottom:14px">'
+      +'<div style="font-size:12px;font-weight:700;color:#0f766e;border-bottom:2px solid #0d9488;padding-bottom:4px;margin-bottom:8px">'+num+'. '+title+'</div>'
+      +'<table style="width:100%;border-collapse:collapse">'+content+'</table></div>';
+  }
+
+  var w = window.open('', '_blank', 'width=960,height=1200');
   if (!w) { alert('Habilite ventanas emergentes para imprimir.'); return; }
-  w.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Historia Clinica — ' + wname + '</title>'
-    + '<style>@page{size:A4;margin:15mm}*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial,sans-serif;font-size:11px;color:#1a1d23}'
-    + '.header{border-bottom:2px solid #0d9488;padding-bottom:10px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:flex-end}'
-    + 'h1{font-size:14px;color:#0f766e}h2{font-size:12px;color:#0f766e;border-bottom:1px solid #e2e8f0;padding-bottom:4px;margin:12px 0 8px}'
-    + '.row{display:flex;gap:16px;margin-bottom:6px}.field label{font-size:9px;color:#718096;display:block;text-transform:uppercase}.field span{font-size:11px;font-weight:600}'
-    + '.conf{background:#fef3c7;border:1px solid #fcd34d;border-radius:4px;padding:8px;font-size:10px;color:#92400e;margin-bottom:12px}'
-    + '@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style></head><body>'
-    + '<div class="header"><div><h1>HISTORIA CLINICA OCUPACIONAL</h1><div style="font-size:10px;color:#718096">Acuerdo Ministerial 1404 — Republica del Ecuador</div></div>'
-    + '<div style="text-align:right;font-size:10px;color:#718096">Fecha: ' + new Date().toLocaleDateString('es-EC') + '<br>CONFIDENCIAL — Secreto medico</div></div>'
-    + '<div class="conf">DOCUMENTO CONFIDENCIAL: Esta historia clinica esta protegida por el Codigo de Etica Medica del Ecuador y la Ley Organica de Salud. Su contenido es de acceso exclusivo del medico tratante y del trabajador. La empresa unicamente recibe el certificado de aptitud.</div>'
-    + '<h2>1. DATOS DE FILIACION</h2>'
-    + '<div class="row"><div class="field"><label>Nombre completo</label><span>' + wname + '</span></div><div class="field"><label>Empresa</label><span>Empresa Demo S.A.</span></div></div>'
-    + '<h2>2. DIAGNOSTICO Y APTITUD LABORAL</h2>'
-    + '<div style="border:2px solid #0d9488;border-radius:6px;padding:10px;text-align:center;margin:10px 0"><div style="font-size:14px;font-weight:700;color:#0f766e">APTO CON RESTRICCIONES</div>'
-    + '<div style="font-size:10px;color:#718096;margin-top:4px">Segun Acuerdo Ministerial 1404 — MSP Ecuador</div></div>'
-    + '<p style="margin-top:12px;font-size:10px;color:#718096">Este documento es una impresion parcial de la historia clinica. Para el contenido completo consulte el sistema SISSO.</p>'
-    + '<script>window.onload=function(){setTimeout(function(){window.print();},500);}<\/script></body></html>');
+  w.document.write('<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Historia Clinica Ocupacional — '+wname+'</title>'
+    + '<style>'
+    + '@page{size:A4;margin:15mm 14mm}'
+    + '*{margin:0;padding:0;box-sizing:border-box}'
+    + 'body{font-family:Arial,sans-serif;font-size:11px;color:#1a1d23;line-height:1.4}'
+    + '.encabezado{border-bottom:3px solid #0d9488;padding-bottom:10px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:flex-start}'
+    + '.enc-logo{display:flex;flex-direction:column}'
+    + '.enc-empresa{font-size:16px;font-weight:800;color:#0f766e;letter-spacing:-0.3px}'
+    + '.enc-ruc{font-size:10px;color:#718096;margin-top:2px}'
+    + '.enc-titulo{text-align:center}'
+    + '.enc-titulo h1{font-size:14px;font-weight:700;color:#0f766e}'
+    + '.enc-titulo .sub{font-size:10px;color:#718096;margin-top:3px}'
+    + '.enc-meta{text-align:right;font-size:10px;color:#718096}'
+    + '.conf{background:#fef3c7;border:1px solid #fcd34d;border-radius:4px;padding:8px;font-size:10px;color:#92400e;margin-bottom:14px}'
+    + '@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}.no-print{display:none}}'
+    + '</style></head><body>'
+    + '<div class="encabezado">'
+    +   '<div class="enc-logo"><div class="enc-empresa">'+empresa+'</div><div class="enc-ruc">RUC: '+ruc+'</div></div>'
+    +   '<div class="enc-titulo"><h1>HISTORIA CLINICA OCUPACIONAL</h1><div class="sub">Acuerdo Ministerial 1404 — República del Ecuador</div><div class="sub">Médico: '+medico+'</div></div>'
+    +   '<div class="enc-meta">Fecha: '+fecha+'<br>CONFIDENCIAL<br>Secreto médico</div>'
+    + '</div>'
+    + '<div class="conf"><strong>DOCUMENTO CONFIDENCIAL:</strong> Historia clínica protegida por el Código de Ética Médica del Ecuador y la Ley Orgánica de Salud. Acceso exclusivo del médico tratante y el trabajador. La empresa únicamente recibe el certificado de aptitud laboral (AM 1404, Art. 24 LOSalud).</div>'
+    + section('1', 'DATOS DE FILIACIÓN', readTab('hc-filiacion'))
+    + section('2', 'ANTECEDENTES PATOLÓGICOS Y HÁBITOS', readTab('hc-antecedentes'))
+    + section('3', 'EXPOSICIÓN LABORAL Y RIESGOS OCUPACIONALES', readTab('hc-exposicion'))
+    + section('4', 'EXAMEN FÍSICO', readTab('hc-exfisico'))
+    + section('5', 'EXÁMENES COMPLEMENTARIOS', readTab('hc-complementarios'))
+    + section('6', 'DIAGNÓSTICO Y APTITUD LABORAL', readTab('hc-diagnostico'))
+    + section('7', 'NOTAS DE EVOLUCIÓN', readTab('hc-notas'))
+    + '<div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:40px;page-break-inside:avoid">'
+    +   '<div style="text-align:center"><div style="border-top:1px solid #1a1d23;padding-top:6px;font-size:10px">'+medico+'<br>Médico Ocupacional / Firma y sello<br>Registro SENESCYT</div></div>'
+    +   '<div style="text-align:center"><div style="border-top:1px solid #1a1d23;padding-top:6px;font-size:10px">'+wname+'<br>Trabajador / Firma<br>C.I.: '+((worker?worker.options[worker.selectedIndex].text:'').split('—')[1]||'—').trim()+'</div></div>'
+    + '</div>'
+    + '<script>window.onload=function(){setTimeout(function(){window.print();},600);}<\/script></body></html>');
   w.document.close();
 }
 
@@ -4144,6 +4311,61 @@ window.showPage = function(id) {
   if (id === 'dashboard' && currentRole === 'th') setTimeout(showTHSecurityNotice, 150);
   if (id === 'espirometria') setTimeout(function(){ calcEspiro(); }, 150);
 };
+
+// ============================================================
+// GESTION DE USUARIOS Y ROLES (FIX 4)
+// ============================================================
+function showAddUsuario() {
+  var panel = document.getElementById('add-usuario-panel');
+  if (panel) panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+}
+var accesoMap = {
+  medico: {label:'Completo (historia, examenes, diagnostico)', bg:'var(--teal3)', col:'var(--teal2)', badgeCls:'bg-t', rolLabel:'Medico'},
+  tecnico: {label:'Parcial (solo aptitud y reportes SST)', bg:'var(--amb3)', col:'var(--amb2)', badgeCls:'bg-b', rolLabel:'Tecnico SSO'},
+  rrhh: {label:'Sin acceso clinico (solo aptitud)', bg:'var(--red3)', col:'var(--red2)', badgeCls:'bg-gr', rolLabel:'RRHH'},
+  admin: {label:'Administrador del sistema', bg:'var(--pur3)', col:'var(--pur2)', badgeCls:'bg-t', rolLabel:'Admin'}
+};
+function updateAccesoLabel() {
+  var rol = (document.getElementById('nu-rol')||{}).value || 'medico';
+  var info = accesoMap[rol] || accesoMap.medico;
+  var lbl = document.getElementById('nu-acceso-label');
+  if (lbl) { lbl.textContent = info.label; lbl.style.background = info.bg; lbl.style.color = info.col; }
+}
+function addUsuario() {
+  var nombre = (document.getElementById('nu-nombre')||{}).value || '';
+  var ci = (document.getElementById('nu-ci')||{}).value || '';
+  var email = (document.getElementById('nu-email')||{}).value || '';
+  var pass = (document.getElementById('nu-pass')||{}).value || '';
+  var rol = (document.getElementById('nu-rol')||{}).value || 'medico';
+  if (!nombre.trim()) { alert('Ingrese el nombre completo del usuario.'); return; }
+  if (!ci.trim() || ci.length < 10) { alert('Ingrese una cedula de identidad valida (10 digitos).'); return; }
+  if (!email.trim() || email.indexOf('@') < 0) { alert('Ingrese un correo electronico valido.'); return; }
+  if (!pass.trim() || pass.length < 8) { alert('La contrasena debe tener al menos 8 caracteres.'); return; }
+  var info = accesoMap[rol] || accesoMap.medico;
+  var initials = nombre.trim().split(' ').filter(function(w){ return w.length>0; }).map(function(w){ return w[0]; }).join('').substring(0,2).toUpperCase();
+  var accesoBadge = rol === 'medico' ? '<span class="badge bg-g">Completo</span>' : rol === 'tecnico' ? '<span class="badge bg-a">Parcial</span>' : '<span class="badge bg-r">Sin acceso</span>';
+  var tbody = document.getElementById('usuarios-tbody');
+  if (!tbody) return;
+  var tr = document.createElement('tr');
+  tr.innerHTML = '<td><div style="display:flex;align-items:center;gap:7px"><div class="av" style="background:' + info.bg + ';color:' + info.col + '">' + initials + '</div>' + nombre + '</div></td>'
+    + '<td><span class="badge ' + info.badgeCls + '">' + info.rolLabel + '</span></td>'
+    + '<td>' + accesoBadge + '</td>'
+    + '<td><span class="badge bg-g">Activo</span></td>'
+    + '<td><button class="btn btn-s btn-sm" onclick="removeUsuario(this)"><i class="ti ti-trash"></i></button></td>';
+  tbody.appendChild(tr);
+  // Clear form and hide panel
+  ['nu-nombre','nu-ci','nu-email','nu-pass'].forEach(function(id){ var el=document.getElementById(id); if(el) el.value=''; });
+  document.getElementById('add-usuario-panel').style.display = 'none';
+  alert('Usuario agregado exitosamente.\n' + nombre + ' (' + info.rolLabel + ')\n\nAcceso: ' + info.label);
+}
+function removeUsuario(btn) {
+  var tr = btn.closest('tr');
+  var nombreCell = tr.querySelector('td');
+  var nombre = nombreCell ? nombreCell.textContent.trim() : 'este usuario';
+  if (confirm('\u00bfEliminar acceso de ' + nombre + '?\nEsta accion no puede deshacerse.')) {
+    tr.remove();
+  }
+}
 
 function updateAudioTrendChart() {
   setTimeout(function() { if (typeof initAudioChart === 'function') initAudioChart(); }, 100);
@@ -4198,12 +4420,106 @@ function exportAusentismoMDT() {
 }
 
 function exportMDT(tipo) {
-  var tipos = {
-    anual: 'Informe Anual SST — formato MDT\nIndicadores: IF, IG, IA, cobertura EMO, enfermedades profesionales',
-    ep: 'Reporte de Enfermedades Profesionales\nFormato Aviso de EP para el IESS Ecuador',
-    cronograma: 'Cronograma Anual de EMOs\nFormato SUT — Sistema Unico de Trabajo'
-  };
-  alert('Exportando: ' + (tipos[tipo] || tipo) + '\n\nEn produccion se generaria el archivo en formato requerido por la normativa ecuatoriana.');
+  var empresa = (document.getElementById('emp-nombre')||{}).value || (document.querySelector('#pg-configuracion input.fi')||{}).value || 'Empresa Demo S.A.';
+  var ruc = (document.getElementById('emp-ruc')||{}).value || '1790012345001';
+  var fecha = new Date().toLocaleDateString('es-EC');
+  var anio = new Date().getFullYear();
+
+  if (tipo === 'anual') {
+    var csv = 'INFORME ANUAL SST \u2014 FORMATO MDT ECUADOR\n';
+    csv += 'Empresa:,' + empresa + '\nRUC:,' + ruc + '\nAnio:,' + anio + '\nFecha generacion:,' + fecha + '\n\n';
+    csv += 'INDICADORES DE GESTION SST (Resolucion MDT-2019-0080)\n';
+    csv += 'Indicador,Valor,Meta,Estado\n';
+    csv += 'Indice de Frecuencia (IF),2.8,<5,Cumple\n';
+    csv += 'Indice de Gravedad (IG),12.4,<20,Cumple\n';
+    csv += 'Indice de Ausentismo (IA),3.2%,<3%,En proceso\n';
+    csv += 'Cobertura EMO (%),82%,100%,En proceso\n';
+    csv += 'Enfermedades profesionales notificadas,0,0,Cumple\n';
+    csv += 'Accidentes de trabajo,1,0,Registrado\n\n';
+    csv += 'REGISTRO DE EXAMENES MEDICOS OCUPACIONALES\n';
+    csv += 'Trabajador,CI,Area,Tipo examen,Fecha,Resultado,Medico\n';
+    csv += 'Ana Garcia Lopez,1701234567,Empaque,EMO Periodica,2025-01-15,Apto con restricciones,Dra. Vargas\n';
+    csv += 'Pedro Huaman,1765432198,Produccion,EMO Periodica,2024-10-10,Apto,Dra. Vargas\n';
+    csv += 'Roberto Silva,1789012345,Calidad,Visiometria,2025-05-20,Apto,Dra. Vargas\n';
+    if (window.nordicoRegistros && window.nordicoRegistros.length) {
+      window.nordicoRegistros.forEach(function(r){
+        csv += r.trabajador.split('\u2014')[0].trim() + ',\u2014,\u2014,Cuestionario Nordico,' + r.fecha + ',EVA max ' + r.maxEva + ',SISSO\n';
+      });
+    }
+    downloadFile(csv, 'Informe_Anual_SST_MDT_' + anio + '.csv', 'text/csv;charset=utf-8;');
+
+  } else if (tipo === 'cronograma') {
+    var csv2 = 'PROGRAMA ANUAL DE EMOs \u2014 SISTEMA UNICO DE TRABAJO (SUT)\n';
+    csv2 += 'Empresa:,' + empresa + '\nRUC:,' + ruc + '\nAnio:,' + anio + '\n\n';
+    csv2 += 'N,Trabajador,CI,Cargo,Area,Tipo examen,Mes programado,Estado,Observaciones\n';
+    var examenes = [
+      ['1','Ana Garcia Lopez','1701234567','Operaria','Empaque','Audiometria control','Junio 2025','Pendiente','Vencimiento proximo'],
+      ['2','Pedro Huaman','1765432198','Operador','Produccion','EMO Periodica','Octubre 2025','Vencida','45 dias de retraso'],
+      ['3','Roberto Silva','1789012345','Tecnico','Calidad','Visiometria','Junio 2025','Pendiente','Proximo 14 dias'],
+      ['4','Jorge Campos','1723456128','Operador','Produccion','Espirometria','Marzo 2026','Al dia',''],
+      ['5','Carlos Mendoza','1723456129','Operario','Empaque','EMO Periodica','Marzo 2026','Al dia',''],
+    ];
+    if (window.proximosExtra && window.proximosExtra.length) {
+      window.proximosExtra.forEach(function(e, i){
+        examenes.push([(examenes.length+1).toString(), e.trabajador.split('\u2014')[0].trim(),'\u2014','\u2014','\u2014',e.tipo,e.fecha,e.estado==='urgente'?'Urgente':e.estado==='proximo'?'Proximo':'Al dia',e.detalle||'']);
+      });
+    }
+    examenes.forEach(function(e){ csv2 += e.join(',') + '\n'; });
+    downloadFile(csv2, 'Cronograma_EMOs_SUT_' + anio + '.csv', 'text/csv;charset=utf-8;');
+
+  } else if (tipo === 'ep') {
+    var w = window.open('','_blank','width=820,height=900');
+    if (!w) { alert('Habilite ventanas emergentes para generar el PDF.'); return; }
+    w.document.write('<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Aviso EP \u2014 IESS</title>'
+      + '<style>@page{size:A4;margin:18mm}*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial,sans-serif;font-size:11px;color:#1a1d23}'
+      + 'h1{font-size:15px;font-weight:700;text-align:center;color:#0f766e;margin-bottom:4px}'
+      + 'h2{font-size:11px;font-weight:700;color:#0f766e;border-bottom:1px solid #0d9488;padding-bottom:3px;margin:12px 0 8px}'
+      + '.hdr{text-align:center;border-bottom:2px solid #0d9488;padding-bottom:10px;margin-bottom:14px}'
+      + '.row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:8px}'
+      + '.f label{font-size:9px;color:#718096;text-transform:uppercase;display:block;margin-bottom:2px}'
+      + '.f span{font-size:11px;font-weight:600;border-bottom:1px solid #e2e8f0;display:block;min-height:16px;padding-bottom:2px}'
+      + '.al{background:#fef3c7;border:1px solid #fcd34d;border-radius:4px;padding:8px;font-size:10px;color:#92400e;margin:10px 0}'
+      + '@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style></head><body>'
+      + '<div class="hdr"><h1>AVISO DE ENFERMEDAD PROFESIONAL</h1>'
+      + '<div style="font-size:10px;color:#718096">Instituto Ecuatoriano de Seguridad Social (IESS) \u2014 Seguro de Riesgos del Trabajo</div>'
+      + '<div style="font-size:10px;margin-top:4px"><strong>Empresa:</strong> ' + empresa + ' | <strong>RUC:</strong> ' + ruc + ' | <strong>Fecha:</strong> ' + fecha + '</div></div>'
+      + '<h2>I. DATOS DE LA EMPRESA</h2>'
+      + '<div class="row"><div class="f"><label>Razon social</label><span>' + empresa + '</span></div>'
+      + '<div class="f"><label>RUC</label><span>' + ruc + '</span></div>'
+      + '<div class="f"><label>Actividad economica</label><span>&nbsp;</span></div></div>'
+      + '<h2>II. DATOS DEL TRABAJADOR</h2>'
+      + '<div class="row"><div class="f"><label>Apellidos y nombres</label><span>&nbsp;</span></div>'
+      + '<div class="f"><label>Cedula de identidad</label><span>&nbsp;</span></div>'
+      + '<div class="f"><label>Cargo / Puesto</label><span>&nbsp;</span></div></div>'
+      + '<div class="row"><div class="f"><label>Area de trabajo</label><span>&nbsp;</span></div>'
+      + '<div class="f"><label>Antiguedad en el puesto</label><span>&nbsp;</span></div>'
+      + '<div class="f"><label>Tiempo de exposicion al riesgo</label><span>&nbsp;</span></div></div>'
+      + '<h2>III. DESCRIPCION DE LA ENFERMEDAD PROFESIONAL</h2>'
+      + '<div class="row"><div class="f"><label>Diagnostico CIE-10</label><span>&nbsp;</span></div>'
+      + '<div class="f"><label>Factor de riesgo asociado</label><span>&nbsp;</span></div>'
+      + '<div class="f"><label>Fecha de diagnostico</label><span>&nbsp;</span></div></div>'
+      + '<div style="margin-bottom:8px"><div class="f"><label>Descripcion del caso</label><span style="min-height:40px">&nbsp;</span></div></div>'
+      + '<h2>IV. EXAMENES Y EVALUACIONES REALIZADOS</h2>'
+      + '<div style="margin-bottom:8px"><div class="f"><label>Examenes complementarios</label><span style="min-height:40px">&nbsp;</span></div></div>'
+      + '<h2>V. MEDIDAS PREVENTIVAS ADOPTADAS</h2>'
+      + '<div style="margin-bottom:8px"><div class="f"><label>Medidas implementadas / recomendaciones</label><span style="min-height:40px">&nbsp;</span></div></div>'
+      + '<div class="al">Este formulario debe presentarse al Departamento de Riesgos del Trabajo del IESS dentro de los 10 dias habiles de conocido el diagnostico \u2014 Art. 155 Ley de Seguridad Social Ecuador.</div>'
+      + '<div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:30px">'
+      + '<div style="text-align:center"><div style="border-top:1px solid #1a1d23;padding-top:4px;font-size:10px">Medico Ocupacional / Firma y sello<br>Registro SENESCYT</div></div>'
+      + '<div style="text-align:center"><div style="border-top:1px solid #1a1d23;padding-top:4px;font-size:10px">Representante Legal de la Empresa<br>Firma y sello</div></div></div>'
+      + '<script>window.onload=function(){setTimeout(function(){window.print();},500);}<\/script></body></html>');
+    w.document.close();
+  }
+}
+
+function downloadFile(content, filename, mimeType) {
+  var BOM = '\uFEFF';
+  var blob = new Blob([BOM + content], { type: mimeType });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url; a.download = filename; a.style.display = 'none';
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 1000);
 }
 
 // ============================================================
