@@ -446,8 +446,13 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
       <div><div style="font-size:13px;font-weight:700">Talento Humano / RRHH</div><div style="font-size:11px;color:var(--t3);margin-top:2px">Solo certificados de aptitud - Sin datos clinicos ni ergonomicos</div></div>
     </div>
     <div style="margin-top:10px;font-size:11px;color:var(--t3);text-align:center;margin-bottom:6px" id="login-status">-- Seleccione un perfil --</div>
+    <!-- PIN DE ACCESO — aparece solo si el perfil tiene PIN configurado -->
+    <div id="pin-input-box" style="display:none;margin-bottom:8px">
+      <div style="font-size:11px;color:var(--t3);margin-bottom:4px;text-align:center"><i class="ti ti-lock"></i> PIN de seguridad requerido</div>
+      <input id="pin-input" type="password" maxlength="8" inputmode="numeric" placeholder="● ● ● ● ● ●" onkeydown="if(event.key==='Enter'){document.getElementById('login-btn').click();}" style="width:100%;box-sizing:border-box;border:1.5px solid var(--bd);border-radius:9px;padding:9px 12px;font-size:18px;text-align:center;letter-spacing:6px;outline:none;font-family:monospace" onfocus="this.style.borderColor='var(--teal)'" onblur="this.style.borderColor='var(--bd)'">
+    </div>
     <button class="login-btn" id="login-btn" onclick="doLogin()" disabled>Ingresar al sistema</button>
-    <div style="margin-top:12px;text-align:center;font-size:10px;color:var(--t3)"><i class="ti ti-shield-check"></i> Datos cifrados AES-256 - Privacidad medica garantizada</div>
+    <div style="margin-top:12px;text-align:center;font-size:10px;color:var(--t3)"><i class="ti ti-shield-check"></i> Acceso controlado por perfil · Datos locales protegidos por LOPDP 2021</div>
   </div>
 </div>
 
@@ -1944,10 +1949,35 @@ input:checked+.sw-sl:before{transform:translateX(15px)}
         <div class="card">
           <div class="ct" style="margin-bottom:10px">Seguridad y privacidad</div>
           <div style="display:flex;flex-direction:column;gap:9px">
-            <div style="display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:12px;font-weight:700">Encriptacion AES-256</div><div style="font-size:10px;color:var(--t3)">BD cifrada en reposo</div></div><span class="badge bg-g"><i class="ti ti-shield-check"></i>Activa</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:12px;font-weight:700">Almacenamiento local seguro</div><div style="font-size:10px;color:var(--t3)">Datos en dispositivo · Sin transmisión a servidores</div></div><span class="badge bg-a"><i class="ti ti-device-laptop"></i>Local</span></div>
             <div style="display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:12px;font-weight:700">Separacion datos medicos/empresa</div><div style="font-size:10px;color:var(--t3)">Empresa solo ve resultado de aptitud</div></div><span class="badge bg-g"><i class="ti ti-lock"></i>Forzado</span></div>
             <div style="display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:12px;font-weight:700">Backup automatico diario</div></div><label class="sw"><input type="checkbox" checked><span class="sw-sl"></span></label></div>
             <div style="display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:12px;font-weight:700">Auditoria de accesos</div></div><label class="sw"><input type="checkbox" checked><span class="sw-sl"></span></label></div>
+            <!-- PIN DE PERFIL -->
+            <div style="border-top:1px solid var(--bd);padding-top:10px;margin-top:2px">
+              <div style="font-size:12px;font-weight:700;margin-bottom:7px"><i class="ti ti-lock"></i> PIN de acceso por perfil (LOPDP Art. 9)</div>
+              <div style="display:flex;flex-direction:column;gap:6px" id="pin-config-list">
+                <div style="display:flex;gap:6px;align-items:center">
+                  <span style="font-size:11px;min-width:130px;color:var(--t2)">Médico Ocupacional</span>
+                  <input type="password" id="pin-cfg-medico" maxlength="8" placeholder="Nuevo PIN (4-8 dígitos)" style="flex:1;border:1px solid var(--bd);border-radius:7px;padding:5px 8px;font-size:12px">
+                  <button class="btn btn-p btn-sm" onclick="setPINFromConfig('medico')"><i class="ti ti-check"></i>Guardar</button>
+                  <button class="btn btn-s btn-sm" onclick="clearPINFromConfig('medico')" title="Quitar PIN"><i class="ti ti-trash"></i></button>
+                </div>
+                <div style="display:flex;gap:6px;align-items:center">
+                  <span style="font-size:11px;min-width:130px;color:var(--t2)">Técnico SSO</span>
+                  <input type="password" id="pin-cfg-sso" maxlength="8" placeholder="Nuevo PIN (4-8 dígitos)" style="flex:1;border:1px solid var(--bd);border-radius:7px;padding:5px 8px;font-size:12px">
+                  <button class="btn btn-p btn-sm" onclick="setPINFromConfig('sso')"><i class="ti ti-check"></i>Guardar</button>
+                  <button class="btn btn-s btn-sm" onclick="clearPINFromConfig('sso')" title="Quitar PIN"><i class="ti ti-trash"></i></button>
+                </div>
+                <div style="display:flex;gap:6px;align-items:center">
+                  <span style="font-size:11px;min-width:130px;color:var(--t2)">Talento Humano</span>
+                  <input type="password" id="pin-cfg-th" maxlength="8" placeholder="Nuevo PIN (4-8 dígitos)" style="flex:1;border:1px solid var(--bd);border-radius:7px;padding:5px 8px;font-size:12px">
+                  <button class="btn btn-p btn-sm" onclick="setPINFromConfig('th')"><i class="ti ti-check"></i>Guardar</button>
+                  <button class="btn btn-s btn-sm" onclick="clearPINFromConfig('th')" title="Quitar PIN"><i class="ti ti-trash"></i></button>
+                </div>
+              </div>
+              <div style="font-size:10px;color:var(--t3);margin-top:6px">El PIN se almacena como hash SHA-256 en este dispositivo. Mínimo 4 dígitos. Dejar vacío y guardar no modifica el PIN actual.</div>
+            </div>
           </div>
         </div>
       </div>
@@ -2439,6 +2469,19 @@ function selectRole(role) {
   var names = {medico:'Medico Ocupacional',sso:'Tecnico SSO / Ergonomia',th:'Talento Humano / RRHH'};
   document.getElementById('login-status').textContent = 'Perfil: ' + names[role];
   document.getElementById('login-btn').disabled = false;
+  // Mostrar campo PIN si el perfil tiene PIN configurado
+  var pinKey = 'sisso_pin_' + role;
+  var hasPIN = localStorage.getItem(pinKey);
+  var pinBox = document.getElementById('pin-input-box');
+  var pinInput = document.getElementById('pin-input');
+  if (pinBox) {
+    if (hasPIN) {
+      pinBox.style.display = 'block';
+      if (pinInput) { pinInput.value = ''; pinInput.focus(); }
+    } else {
+      pinBox.style.display = 'none';
+    }
+  }
 }
 
 function doLogin() {
@@ -2451,6 +2494,33 @@ function doLogin() {
     currentRole = window._selectedRole;
   }
   if (!currentRole) { alert('Por favor seleccione un perfil de acceso.'); return; }
+
+  // Validar PIN si el perfil tiene uno configurado
+  var pinKey = 'sisso_pin_' + currentRole;
+  var hasPIN = localStorage.getItem(pinKey);
+  if (hasPIN) {
+    var pinInput = document.getElementById('pin-input');
+    var enteredPIN = pinInput ? pinInput.value.trim() : '';
+    if (!enteredPIN) {
+      if (pinInput) { pinInput.focus(); pinInput.style.borderColor = 'var(--red)'; }
+      document.getElementById('login-status').textContent = '⚠ Ingrese su PIN de acceso';
+      return;
+    }
+    verifyPIN(currentRole, enteredPIN).then(function(ok) {
+      if (!ok) {
+        if (pinInput) { pinInput.value = ''; pinInput.focus(); pinInput.style.borderColor = 'var(--red)'; }
+        document.getElementById('login-status').textContent = '✗ PIN incorrecto. Intente nuevamente.';
+        return;
+      }
+      if (pinInput) pinInput.style.borderColor = 'var(--bd)';
+      // PIN correcto: mostrar consentimiento
+      var m = document.getElementById('consent-modal');
+      if (m) { m.style.display = 'flex'; }
+      else { _doLoginConfirmed(); }
+    });
+    return;
+  }
+
   // LOPDP 2021 / AM 1404 Art. 7: mostrar consentimiento antes de ingresar
   var m = document.getElementById('consent-modal');
   if (m) { m.style.display = 'flex'; return; }
@@ -2511,6 +2581,56 @@ function _doLoginConfirmed() {
   });
   // Show dashboard
   showPage('dashboard');
+}
+
+/* ---- PIN DE ACCESO — WebCrypto SHA-256 (LOPDP / AM 1404) ---- */
+async function sha256hex(str) {
+  var buf = new TextEncoder().encode(str);
+  var hash = await crypto.subtle.digest('SHA-256', buf);
+  return Array.from(new Uint8Array(hash)).map(function(b){ return b.toString(16).padStart(2,'0'); }).join('');
+}
+
+async function verifyPIN(role, enteredPIN) {
+  var stored = localStorage.getItem('sisso_pin_' + role);
+  if (!stored) return true; // sin PIN configurado: pasa siempre
+  var entered = await sha256hex(enteredPIN);
+  return entered === stored;
+}
+
+async function setPIN(role, newPIN) {
+  if (!newPIN || newPIN.length < 4) { alert('El PIN debe tener al menos 4 dígitos.'); return false; }
+  var hash = await sha256hex(newPIN);
+  localStorage.setItem('sisso_pin_' + role, hash);
+  return true;
+}
+
+function clearPIN(role) {
+  localStorage.removeItem('sisso_pin_' + role);
+}
+
+// Expuesto para configuración de PINes desde el módulo de usuarios
+window.sisso_setPIN = setPIN;
+window.sisso_clearPIN = clearPIN;
+
+function setPINFromConfig(role) {
+  var inp = document.getElementById('pin-cfg-' + role);
+  if (!inp) return;
+  var val = inp.value.trim();
+  if (!val) { alert('Ingrese un PIN de al menos 4 dígitos.'); return; }
+  setPIN(role, val).then(function(ok) {
+    if (ok) {
+      inp.value = '';
+      inp.placeholder = '\u2713 PIN guardado';
+      setTimeout(function(){ inp.placeholder = 'Nuevo PIN (4-8 dígitos)'; }, 2500);
+    }
+  });
+}
+
+function clearPINFromConfig(role) {
+  if (!confirm('¿Eliminar el PIN del perfil ' + role + '? El acceso quedará sin protección de PIN.')) return;
+  clearPIN(role);
+  var inp = document.getElementById('pin-cfg-' + role);
+  if (inp) { inp.value = ''; inp.placeholder = 'PIN eliminado'; setTimeout(function(){ inp.placeholder = 'Nuevo PIN (4-8 dígitos)'; }, 2500); }
 }
 
 function togglePrivacyMode() {
